@@ -24,6 +24,7 @@
               bgNavbar: "rgba(185, 185, 185, 0.1)",
               galleyBg: "#929292",
               partnersBg: "#F5F5F5",
+              bgBacgroundBlack: "rgba(0,0,0,0.3)"
             },
             backgroundImage: {
               "bg-blog": "url(''../image/Contact-bg.png')",

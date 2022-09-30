@@ -13,9 +13,9 @@
       <header id="header" class="relative">
         @include('blocks.header')
         <div
-          class="header__content bg-[url('./project/image/bg-about.png')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
+          class="header__content bg-[url('./project/image/bg-about.png')] bg-blend-darken md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
         >
-        <div class=" w-full h-full">
+        <div class=" w-full h-full ">
           <div class="container mx-auto">
             <h2 class="text-3xl md:text-6xl font-bold mb-3">{{LN['about us']}}</h2>
             <h3 class="text-lg md:text-2xl font-semibold">

@@ -104,7 +104,7 @@
 </div>
 
 <nav
-  class="navbar sticky top-0 right-0 md:top-[42px] w-full z-50 bg-bgNavbar left-0 px-2 py-3 text-xs text-white border-gray-200 "
+  class="navbar sticky top-0 right-0 md:top-[42px] w-full z-50 bg-white left-0 px-2 py-3 text-xs text-white border-gray-200 "
 >
   <div
     class="container flex flex-wrap items-center justify-between mx-auto"
@@ -322,32 +322,37 @@
             >
               <li>
                 <a
-                  href="./about"
-                  class="block px-4 py-2 "
-                  >
-                  {{LN['tourism']}}
-                  </a
-                >
-              </li>
-              <li>
-                <a
-                  href="./destinations"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['cultural tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
+                  href="./tourism?id=2"
                   class="block px-4 py-2 hover:bg-gray-100 "
                   >{{LN['gastronomic tourism']}}</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/tourism?id=4"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['religious tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=3"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['cultural tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=1"
                   class="block px-4 py-2 hover:bg-gray-100 "
                   >{{LN['medical tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=5"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['mountain tourism']}}</a
                 >
               </li>
             </ul>
