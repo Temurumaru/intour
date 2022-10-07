@@ -13,7 +13,7 @@ $data = R::findOne("tours", "id = ?", [@$_GET['id']]);
 
 <head>
 	<meta charset="utf-8">
-	<title>DarkPan - Bootstrap 5 Admin Template</title>
+	<title>inTour Panel</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="keywords">
 	<meta content="" name="description">

@@ -377,29 +377,29 @@ class AdminController extends Controller
 
 		$max_avatar_size = 2 * 1024 * 1024;
 
-		if(empty($req -> car_img)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Wallpaper image not found.']);
+		if(empty($req -> gallery_prev)) {
+			return redirect() -> back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
 		}
 
-		$file = $req -> car_img;
+		$file = $req -> gallery_prev;
 		$type = $file -> getMimeType();
 		$error = $file -> getError();
 		$size = $file -> getSize();
 
-		if(empty($req -> car_img)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Preview image not found.']);
+		if(empty($req -> gallery_prev)) {
+			return redirect() -> back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
 		}
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Incorrect Wallpaper image extension.']);
+			return redirect() -> back() -> withErrors(['gallery_prev' => 'Incorrect Preview image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'The Wallpaper image is too heavy.']);
+			return redirect() -> back() -> withErrors(['gallery_prev' => 'The Preview image is too heavy.']);
 		}
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
 
-		Image::make($file->path())->save(public_path('upl_data/car_imgs/').$wlpp, 30, 'jpg');
+		Image::make($file->path())->save(public_path('upl_data/gallery_prevs/').$wlpp, 30, 'jpg');
 
 
 		$gallery_section = R::dispense("gallery_sec");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intour</title>
+    <title>Intour/Contact</title>
     @include('blocks.head_imp')
   </head>
   <body>
@@ -27,7 +27,10 @@
               <img src="./project/image/contact/Location.png" alt="">
               <h3 class="text-lg font-semibold my-3 text-bgColor ">{{LN['location']}}</h3>
               
-                <p class="text-black">{{LN['uzbekistan, tashkent city,']}}</p>
+                <p class="text-black">
+                  {{-- {{LN['uzbekistan, tashkent city,']}} --}}
+                  {{LN['Uzbekistan , Tashkent , Navoi 2']}}
+                </p>
                 <p class="text-black">{{LN['navoiy 2 st']}}</p>
             </div>
             <div class=" flex flex-col justify-center items-center" data-aos="fade-up" data-aos-delay="100">
@@ -40,7 +43,7 @@
               <img src="./project/image/contact/messenger.png" alt="">
               <h3 class="text-lg font-semibold my-3 text-bgColor ">{{LN['mails']}}</h3>
               <p class="text-black">info@intours.uz</p>
-              <p class="text-black">info@travelintour.uz</p>
+              {{-- <p class="text-black">info@travelintour.uz</p> --}}
             </div>
             <div class=" flex flex-col justify-center items-center" data-aos="fade-up" data-aos-delay="200">
               <img src="./project/image/contact/time.png" alt="">
@@ -53,7 +56,7 @@
       </section>
       <section>
         <div class="grid grid-cols-1">
-          <iframe class="w-full h-[400px] md:h-[600px]" data-aos="fade-up" data-aos-delay="50" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d749.1202033568303!2d69.26661007073444!3d41.32015696188094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b5c208283f1%3A0xc822f76ae358f24f!2sGimnastika%20bo&#39;yicha%20Respublika%20ixtisoslashtirilgan%20Olimpiya%20zaxiralari!5e0!3m2!1sru!2s!4v1662275869133!5m2!1sru!2s"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class="w-full h-[400px] md:h-[600px]" data-aos="fade-up" data-aos-delay="50" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1259.8360384407135!2d69.24632438284178!3d41.32165444359484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1516104617992"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
 

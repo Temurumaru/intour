@@ -70,7 +70,7 @@ R::store($data);
 
               <div>
                 <h3 class="text-bgColor mb-3 text-2xl my-5 font-semibold">
-                  Information
+                  {{LN['information']}}
                 </h3>
                 <p class="text-bgColor mb-5">
                   <?php $dst = (@$_COOKIE['lang'] != 'ru') ? $data -> info_text : $data -> info_text_ru;

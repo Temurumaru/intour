@@ -316,19 +316,19 @@ use RedBeanPHP\R as R;
 								$sec_gallery_srch = "id";
 
 								if(@$_GET['sec_gallery_srch'] == "id") $sec_gallery_srch = "id DESC";
-								if(@$_GET['sec_gallery_srch'] == "title") $sec_gallery_srch = "title";
-								if(@$_GET['sec_gallery_srch'] == "title_ru") $sec_gallery_srch = "title_ru";
+								if(@$_GET['sec_gallery_srch'] == "gallery_sec_name") $sec_gallery_srch = "gallery_sec_name";
+								if(@$_GET['sec_gallery_srch'] == "gallery_sec_name_ru") $sec_gallery_srch = "gallery_sec_name_ru";
 
 
-								$blogs = R::find("gallery", "ORDER BY ".$sec_gallery_srch);
+								$blogs = R::find("gallery_sec", "ORDER BY ".$sec_gallery_srch);
 								foreach ($blogs as $val) { ?>
 
 								<tr>
 									<td><?=$val -> id?></td>
-									<td><?=$val -> title?></td>
-									<td><?=$val -> title_ru?></td>
+									<td><?=$val -> gallery_sec_name?></td>
+									<td><?=$val -> gallery_sec_name_ru?></td>
 									<td>
-										<a class="btn btn-sm btn-primary" onclick="delSecGalleryOnCLick(<?=$val -> id?>, '<?=$val -> title?>')" href="">Delete</a>
+										<a class="btn btn-sm btn-primary" onclick="delSecGalleryOnCLick(<?=$val -> id?>, '<?=$val -> gallery_sec_name?>')" href="">Delete</a>
 									</td>
 								</tr>
 								<?php }?>

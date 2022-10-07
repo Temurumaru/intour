@@ -60,6 +60,10 @@ Route::get('/car', function () {
 	return view('car');
 }) -> name('car');
 
+Route::get('/visa', function () {
+	return view('visa');
+}) -> name('visa');
+
 Route::get('/about', function () {
 	return view('about');
 }) -> name('about');
@@ -113,6 +117,10 @@ if(isset($_SESSION['admin'])) {
 	Route::get('/admin_gallery', function () {
 		return view('admin_gallery');
 	}) -> name('admin_gallery');
+
+	Route::get('/admin_home_wallpaper', function () {
+		return view('admin_home_wallpaper');
+	}) -> name('admin_home_wallpaper');
 
 	Route::get('/admin_cars', function () {
 		return view('admin_cars');

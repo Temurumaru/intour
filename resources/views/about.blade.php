@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intour/about</title>
+    <title>Intour/About</title>
     @include('blocks.head_imp')
   </head>
 
@@ -37,17 +37,18 @@
                 <h5
                   class="text-base font-semibold uppercase text-logoColor md:text-lg"
                 >
-                  {{LN['travel agency']}}
+                  {{LN['travel agency']}} INTOUR
                 </h5>
                 <h1
                   class="text-2xl font-bold uppercase md:text-4xl text-bgColor"
                 >
-                  {{LN['discover uzbekistan']}} <br class="md:block hidden"> {{LN['with']}} 
-                  <span class="text-logoColor">{{LN['intour']}}</span>
+                  {{-- {{LN['discover uzbekistan']}} <br class="md:block hidden"> {{LN['with']}}  --}}{{LN['DISCOVER THE WORLD OF ORIENTAL FAIRY TALES TOGETHER WITH']}}
+                  <span class="text-logoColor">{{LN['intour']}}!</span>
                 </h1>
               </div>
               <p>
-                {{LN['our company has been providing its services in the field of tourism since 2016. despite its youth, our company has already accumulated experience and knowledge that help us provide high-level services to our customers.']}}
+                {{LN['Our company has been providing its services in the field of tourism since 2016. Despite its youth, our company has already accumulated experience and knowledge that help us to provide our clients with high-level services. Our company employs the best specialists – experienced and qualified employees who will be happy to organize for you exactly the vacation you dreamed of. Why should you choose us, you ask. In our company you will be able to book a tour that will open the east in front of you, and plunge you into a beautiful oriental fairy tale with its legends and legends, majestic minarets and luxurious palaces in which khans and emirs once lived. We know and understand the wishes of our clients to make their holidays as organized and enjoyable as possible. That is why we apply an individual approach to each of our clients. By contacting our travel company, you can count on qualified advice, understanding and attention from our employees. They will help you in detail and tell you about each tour, as well as pick up a tour, a hotel and a convenient flight option that will suit you. The quality of our services is constantly improving – we take into account all the wishes of our customers, and try to take them into account in order to create the most favorable conditions for our customers rest. If you entrust the organization of your vacation to our company, you will definitely remember your vacation, because here you can choose a vacation for every taste in accordance with your interests and desires.']}}
+                {{-- {{LN['our company has been providing its services in the field of tourism since 2016. despite its youth, our company has already accumulated experience and knowledge that help us provide high-level services to our customers.']}} --}}
               </p>
               <div data-aos="fade-right" class="flex my-4 items-center">
                 <i
