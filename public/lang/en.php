@@ -66,7 +66,7 @@ define('LN', [
   "with" => "with",
   "intour" => "intour",
   "our company has been providing its services in the field of tourism since 2016. despite its youth, our company has already accumulated experience and knowledge that help us provide high-level services to our customers." => "Our company has been providing its services in the field of tourism since 2016. Despite its youth, our company has already accumulated experience and knowledge that help us provide high-level services to our customers.",
-  "5 years of experience" => "5 Years of Experience",
+  "7 years of experience" => "7 Years of Experience",
   "10+ tour destinations" => "10+ Tour Destinations", 
   "call us" => "Call Us",
   "write to us" => "Write to us",

@@ -54,7 +54,7 @@
                 <i
                   class="ri-check-line w-5 h-5 text-white bg-logoColor mr-2.5 flex items-center justify-center rounded-full"
                 ></i>
-                <p>{{LN['5 years of experience']}}</p>
+                <p>{{LN['7 years of experience']}}</p>
               </div>
               <div data-aos="fade-right" class="flex my-4 items-center">
                 <i

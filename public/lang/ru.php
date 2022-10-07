@@ -79,7 +79,7 @@ define('LN', [
   "with" => "c",
   "intour" => "intour",
   "our company has been providing its services in the field of tourism since 2016. despite its youth, our company has already accumulated experience and knowledge that help us provide high-level services to our customers." => "Наша компания предоставляет свои услуги в сфере туризма с 2016 года. Несмотря на свою молодость, наша компания уже накопленный опыт и знания, которые помогают нам предоставлять услуги высокого уровня нашим клиентам.",
-  "5 years of experience" => "5 Лет опыта Работы",
+  "7 years of experience" => "7 Лет опыта Работы",
   "10+ tour destinations" => "10+ Туристических Направлений",
   "1500+ happy customers" => "1500+ Счастливых Клиентов",
   "documents" => "ДОКУМЕНТЫ",
