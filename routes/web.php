@@ -60,9 +60,9 @@ Route::get('/car', function () {
 	return view('car');
 }) -> name('car');
 
-Route::get('/visa', function () {
-	return view('visa');
-}) -> name('visa');
+Route::get('/text_page', function () {
+	return view('text_page');
+}) -> name('text_page');
 
 Route::get('/about', function () {
 	return view('about');
@@ -141,9 +141,9 @@ if(isset($_SESSION['admin'])) {
 	) -> name('updPostOnBlogC');
 
 	Route::post(
-		'/add_post_on_tourism_c',
-		'App\Http\Controllers\AdminController@addPostOnTourism'
-	) -> name('addPostOnTourismC');
+		'/upd_post_on_tourism_c',
+		'App\Http\Controllers\AdminController@updPostOnTourism'
+	) -> name('updPostOnTourismC');
 
 	Route::post(
 		'/add_section_on_gallery_c',

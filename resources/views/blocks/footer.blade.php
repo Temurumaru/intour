@@ -21,7 +21,7 @@
         </div>
         <div>
           <h5 class="text-lg font-bold">{{LN['write to us']}}</h5>
-          <p class="text-md">info@intouragency.uz</p>
+          <p class="text-md">info@intours.uz</p>
         </div>
       </div>
       <div class="flex items-center text-white">
@@ -32,7 +32,7 @@
         </div>
         <div>
           <h5 class="text-lg font-bold"> {{LN['address']}}</h5>
-          <p class="text-md">{{LN['tashkent 2navai streeth']}}</p>
+          <p class="text-md">{{LN['Uzbekistan , Tashkent , Navoi 2']}}</p>
         </div>
       </div>
     </div>

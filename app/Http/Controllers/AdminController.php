@@ -52,7 +52,7 @@ class AdminController extends Controller
 
 	public function addPostOnBlog(Request $req) {
 		$req -> validate([
-			'title' => 'required|min:4|max:20',
+			'title' => 'required|min:4|max:25',
 			'top_text' => 'required|min:20|max:6000',
 			'bottom_text' => 'required|min:20|max:6000',
 		]);
@@ -268,7 +268,7 @@ class AdminController extends Controller
 
 
 
-	public function addPostOnTurism(Request $req) {
+	public function updPostOnTourism(Request $req) {
 		$req -> validate([
 			'title' => 'required|min:4|max:20',
 			'top_text' => 'required|min:20|max:6000',
@@ -277,63 +277,63 @@ class AdminController extends Controller
 
 		$max_avatar_size = 2 * 1024 * 1024;
 
-		if(empty($req -> wallpaper_img)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
+		if(isset($req -> wallpaper_img)) {
+
+			$file = $req -> wallpaper_img;
+			$type = $file -> getMimeType();
+			$error = $file -> getError();
+			$size = $file -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+			}
+
+			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+			}
+
+			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
+
 		}
 
-		$file = $req -> wallpaper_img;
-		$type = $file -> getMimeType();
-		$error = $file -> getError();
-		$size = $file -> getSize();
+		if(isset($req -> preview_img)) {
 
-		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+			$file2 = $req -> preview_img;
+			$type = $file2 -> getMimeType();
+			$error = $file2 -> getError();
+			$size = $file2 -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+				return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
+			}
+
+			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+				return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
+			}
+
+			$prv = date("YmdHis").rand(0, 99999999).".jpg";
+
 		}
 
-		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
-		}
 
-		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
-
-		Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
-
-
-		if(empty($req -> preview_img)) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'Preview image not found.']);
-		}
-
-		$file = $req -> preview_img;
-		$type = $file -> getMimeType();
-		$error = $file -> getError();
-		$size = $file -> getSize();
-
-		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
-		}
-
-		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
-		}
-
-		$prv = date("YmdHis").rand(0, 99999999).".jpg";
-
-		Image::make($file->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
-
+		$blog = R::findOne("tourism", "id = ?", [$req -> id]);
+		// dd($req);
+		$gallery = json_decode($blog -> img, true);
 		$imgs_json = [];
+		$img_titles_json = [];
 
 		$i = 1;
 		while($i <= 3) {
 			$fil_path = '';
-			eval('$file = $req -> img_'.$i.';');
-			if(!$file) {
-				$imgs_json['img_'.$i] = '';
+			eval('$file3 = $req -> img_'.$i.';');
+			if(!$file3) {
+				$imgs_json['img_'.$i] = $gallery['img_'.$i];
 				$i++;
 				continue;
 			}
-			$type = $file -> getMimeType();
-			$error = $file -> getError();
-			$size = $file -> getSize();
+			$type = $file3 -> getMimeType();
+			$error = $file3 -> getError();
+			$size = $file3 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
 				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
@@ -345,27 +345,30 @@ class AdminController extends Controller
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 30, 'jpg');
-
-			eval('$fil_ttl = $req -> img_'.$i.'_title;');
-
 			$imgs_json['img_'.$i] = $fil_path;
+
+			Image::make($file3->path())->save(public_path('upl_data/imgs/').$fil_path, 20, 'jpg');
 
 			$i++;
 		}
 
-		$blog = R::findOne("tourism", "id =?", [$req -> id]);
 
 		$blog -> title = $req -> title;
-		$blog -> wallpaper = $wlpp;
+		$blog -> title_ru = $req -> title_ru;
+		if(isset($wlpp)) $blog -> wallpaper = $wlpp;
+		if(isset($prv)) $blog -> preview = $prv;
 		$blog -> top_text = $req -> top_text;
+		$blog -> top_text_ru = $req -> top_text_ru;
 		$blog -> bottom_text = $req -> bottom_text;
+		$blog -> bottom_text_ru = $req -> bottom_text_ru;
 		$blog -> img = (string)json_encode($imgs_json);
 		$blog -> views = 0;
 
 		R::store($blog);
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
+		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
 
-		return redirect('admin_blog') -> with('success', 'Post was created.');
+		return redirect('admin') -> with('success', 'Tourism was updated.');
 
 	}
 
@@ -707,10 +710,10 @@ class AdminController extends Controller
 		$tour -> title = $req -> title;
 		$tour -> title_ru = $req -> title_ru;
 		$tour -> address = $req -> address;
-		$tour -> wallpaper = $wlpp;
+		if(isset($wlpp)) $tour -> wallpaper = $wlpp;
 		$tour -> price = $req -> price;
 		$tour -> price_ru = $req -> price_ru;
-		$tour -> preview = $prv;
+		if(isset($prv)) $tour -> preview = $prv;
 		$tour -> duration = '{"duration_days":"'.$req -> duration_days.'", "duration_nights":"'.$req -> duration_nights.'"}';
 		$tour -> interest_places = $req -> interest_places;
 		$tour -> group = $req -> group;
@@ -734,8 +737,8 @@ class AdminController extends Controller
 		// $tour ->  = 0;
 		
 		R::store($tour);
-		Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
-		Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
+		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
 		
 		return redirect('admin_tour') -> with('success', 'Tour was created.');
 		
@@ -857,7 +860,7 @@ class AdminController extends Controller
 		$tour -> title = $req -> title;
 		$tour -> title_ru = $req -> title_ru;
 		$tour -> address = $req -> address;
-		if(isset($wlpp)) $btour -> wallpaper = $wlpp;
+		if(isset($wlpp)) $tour -> wallpaper = $wlpp;
 		$tour -> price = $req -> price;
 		$tour -> price_ru = $req -> price_ru;
 		if(isset($prv)) $tour -> preview = $prv;
@@ -1001,3 +1004,4 @@ class AdminController extends Controller
 	}
 
 }
+

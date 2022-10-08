@@ -66,9 +66,11 @@ $gallery = json_decode($data -> img, true);
 				<div class="row g-4">
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<form action="{{route('addPostOnBlogC')}}" enctype="multipart/form-data" method="post">
+							<form action="{{route('updPostOnTourismC')}}" enctype="multipart/form-data" method="post">
 								@csrf
 								<h6 class="mb-3">Tourism update</h6>
+
+								<input type="hidden" name="id" value="{{$data -> id}}">
 
 								<div class="form-floating mb-2">
 									<input type="text" name="title" class="form-control" id="floatingInput"

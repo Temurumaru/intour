@@ -482,13 +482,6 @@ use RedBeanPHP\R as R;
                           >{{LN['_contact us']}}</a
                         >
                       </li>
-                      <li>
-                        <a
-                          href="visa"
-                          class="block px-4 py-2 hover:bg-gray-100 "
-                          >{{LN['visa']}}</a
-                        >
-                      </li>
                     </ul>
                     
                   </div>
@@ -852,7 +845,7 @@ use RedBeanPHP\R as R;
 </svg>
 
               
-                <h1 class="mt-2.5 text-lg xl:text-2xl font-semibold text-center ">h
+                <h1 class="mt-2.5 text-lg xl:text-2xl font-semibold text-center ">
                   {{LN['religious tourism']}}
                 </h1>
             </a>
