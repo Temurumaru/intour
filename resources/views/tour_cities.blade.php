@@ -107,12 +107,19 @@ $gl_titles = json_decode((@$_COOKIE['lang'] != 'ru') ? $data -> img_titles : $da
 
           </div>
           <div class="md:w-2/5 md:pl-5 w-full flex flex-col md:pr-6">
-            <h3 class="text-bgColor font-bold text-xl mb-2">{{LN['other types of toursim']}}</h3>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['gastronomic tourism']}}</a>
-            <a href="/tourism?id=4" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['religious tourism']}}</a>
-            <a href="/tourism?id=3" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['cultural tourism']}}</a>
-            <a href="/tourism?id=1" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['medical tourism']}}</a>
-            <a href="/tourism?id=5" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['mountain tourism']}}</a>
+            <h3 class="text-bgColor font-bold text-xl mb-2">{{LN['other cities']}}</h3>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['toshkent']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['samarkhand']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['khiva']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['karakalpakstan']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['navoiy']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['fergana']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['bukhara']}}</a>
+            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['horezm']}}</a>
+            <a href="/tourism?id=4" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['qashqararyo']}}</a>
+            <a href="/tourism?id=3" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['jizzah']}}</a>
+            <a href="/tourism?id=1" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['termiz']}}</a>
+            <a href="/tourism?id=5" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['andijon']}}</a>
           </div>
         </div>
       </div>

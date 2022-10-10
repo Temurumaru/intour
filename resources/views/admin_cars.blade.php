@@ -62,6 +62,13 @@ use RedBeanPHP\R as R;
 								@csrf
 								<h6 class="mb-3">Add Car</h6>
 
+								<select name="category" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" required>
+									<option selected="">Change Category</option>
+									<option value="vip">VIP Transfer</option>
+									<option value="group">Group Transfer</option>
+									<option value="regular">Regular Transfer</option>
+								</select>
+
 								<div class="form-floating">
 									<input type="text" class="form-control" name="car_name"
 									placeholder="Car Name">

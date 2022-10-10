@@ -17,11 +17,11 @@
         >
         <div class=" w-full h-full">
           <div class="container mx-auto">
-            <h2 class="text-3xl md:text-6xl font-bold mb-3">{{LN['cars']}} </h2>
+            <h2 class="text-3xl md:text-6xl font-bold mb-3">{{LN['cars']}} {{strtoupper(@$_GET['category'])}}</h2>
             <h3 class="text-lg md:text-2xl font-semibold">
               <a href="./">{{LN['home']}}</a> /
               <span class="text-logoColor">
-                <a href="#">{{LN['cars']}}</a></span
+                <a href="#">{{LN['cars']}} {{strtoupper(@$_GET['category'])}}</a></span
               >
             </h3>
           </div>
@@ -53,7 +53,7 @@
         <?php 
           use RedBeanPHP\R as R;
 
-          $cars = R::findAll("cars");
+          $cars = R::find("cars", "category = ?", [@$_GET['category']]);
 
           foreach ($cars as  $val) {
           ?>

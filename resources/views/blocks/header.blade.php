@@ -190,7 +190,7 @@
                 <a
                   href="./tour_cities?id=1"
                   class="block px-4 py-2"
-                  > {{LN['toshkent']}}</a
+                  >{{LN['toshkent']}}</a
                 >
               </li>
               <li>

@@ -531,6 +531,13 @@ use RedBeanPHP\R as R;
         <div id="default-carousel" class="relative" data-carousel="static">
           <!-- Carousel wrapper -->
           <div class="relative h-[60vh] overflow-hidden -lg md:h-[94vh]">
+
+            <?php
+            
+            $wall = R::findAll('wall_slide');
+
+            ?>
+
             <!-- Item 1 -->
             <div
               class="absolute inset-0 z-20 transition-all duration-700 ease-in-out transform translate-x-0"
@@ -540,16 +547,16 @@ use RedBeanPHP\R as R;
             class=" absolute z-20 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-3/4 header__content  md:top-1/2 left-1/2 top-[70%] sm:text-3xl font-['Inter-Bold']"
             >
               <h4 data-aos="fade-down"  class="header__content  text-lg font-semibold md:text-xl">
-                {{LN['lets travel with intour']}}
+                {{-- {{LN['lets travel with intour']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[1]['sub_title'] : $wall[1]['sub_title_ru'] ?>
               </h4>
               <h1 data-aos="fade-down"  class="text-4xl font-bold text-white stroke-2 md:text-7xl">
-                <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span>
-                {{LN['the world with khiva']}}
+                {{-- <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span> --}}
+                {{-- {{LN['the world with khiva']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[1]['title'] : $wall[1]['title_ru'] ?>
               </h1>
             </span
           >
               <img
-                src="./project/image/wallpaper (1).png"
+                src="/upl_data/wallpapers/{{$wall[1]['img']}}"
                 class="absolute block object-cover w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt="..."
               />
@@ -562,17 +569,17 @@ use RedBeanPHP\R as R;
           <span  
           class=" absolute z-20 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 header__content top-1/2 left-1/2 sm:text-3xl "
           >
-            <h4 data-aos="fade-down"  class="header__content  text-lg font-semibold md:text-xl">
-              {{LN['lets travel with intour']}}
-            </h4>
-            <h1 data-aos="fade-down"  class="text-4xl font-bold text-white stroke-2 md:text-7xl">
-              <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span>
-              {{LN['the world with khiva']}}
-            </h1>
+          <h4 data-aos="fade-down"  class="header__content  text-lg font-semibold md:text-xl">
+            {{-- {{LN['lets travel with intour']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[2]['sub_title'] : $wall[2]['sub_title_ru'] ?>
+          </h4>
+          <h1 data-aos="fade-down"  class="text-4xl font-bold text-white stroke-2 md:text-7xl">
+            {{-- <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span> --}}
+            {{-- {{LN['the world with khiva']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[2]['title'] : $wall[2]['title_ru'] ?>
+          </h1>
           </span
         >
             <img
-              src="./project/image/wallpaper (1).png"
+              src="upl_data/wallpapers/{{$wall[2]['img']}}"
               class="absolute block object-cover w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
@@ -585,17 +592,17 @@ use RedBeanPHP\R as R;
             <span  
             class=" absolute z-20 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 header__content top-1/2 left-1/2 sm:text-3xl "
             >
-              <h4 data-aos="fade-down"  class="header__content  text-lg font-semibold md:text-xl">
-                {{LN['lets travel with intour']}}
-              </h4>
-              <h1 data-aos="fade-down"  class="text-4xl font-bold text-white stroke-2 md:text-7xl">
-                <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span>
-                {{LN['lets travel with intour']}}
-              </h1>
+            <h4 data-aos="fade-down"  class="header__content  text-lg font-semibold md:text-xl">
+              {{-- {{LN['lets travel with intour']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[3]['sub_title'] : $wall[3]['sub_title_ru'] ?>
+            </h4>
+            <h1 data-aos="fade-down"  class="text-4xl font-bold text-white stroke-2 md:text-7xl">
+              {{-- <span class="font-sans text-transparent stroke-white">{{LN['discover']}}</span> --}}
+              {{-- {{LN['the world with khiva']}} --}}<?=(@$_COOKIE['lang'] != 'ru') ? $wall[3]['title'] : $wall[3]['title_ru'] ?>
+            </h1>
             </span
           >
               <img
-                src="./project/image/wallpaper (1).png"
+                src="/upl_data/wallpapers/{{$wall[3]['img']}}"
                 class="absolute block object-cover w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt="..."
               />
@@ -986,26 +993,49 @@ use RedBeanPHP\R as R;
             </h1>
           </div>
           <div class="grid grid-cols-1  md:grid-cols-3  gap-6 gap-y-20  md:gap-12 ">
-            <?php
 
-              $crs = R::findAll("cars", "LIMIT 3");
-            
-              foreach ($crs as $vl) {
-              ?>
-            <a href="/car" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
+            <a href="/car?category=regular" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
               <div class="relative car overflow-hidden rounded-lg">
-                <img class="w-full max-h-[500px] object-cover" src="/upl_data/imgs/<?=$vl -> wallpaper?>">
+                <img class="w-full max-h-[500px] object-cover" src="/img/regular.png">
                 <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
                 <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
                   <div class="flex justify-between items-center">
                     <h1 class="sm:text-xl md:text-2xl text-xs font-semibold text-white"> 
-                      <?=(@$_COOKIE['lang'] != "ru") ? $vl -> car_name : $vl -> car_name_ru?>
+                      Regular Transfer
                     </h1>
                   </div>
                 </div>
               </div>
             </a>
-            <?php }?>
+
+            <a href="/car?category=group" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
+              <div class="relative car overflow-hidden rounded-lg">
+                <img class="w-full max-h-[500px] object-cover" src="/img/group.png">
+                <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
+                <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
+                  <div class="flex justify-between items-center">
+                    <h1 class="sm:text-xl md:text-2xl text-xs font-semibold text-white"> 
+                      Group Transfer
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/car?category=vip" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
+              <div class="relative car overflow-hidden rounded-lg">
+                <img class="w-full max-h-[500px] object-cover" src="/img/vip.png">
+                <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
+                <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
+                  <div class="flex justify-between items-center">
+                    <h1 class="sm:text-xl md:text-2xl text-xs font-semibold text-white"> 
+                      VIP Transfer
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </a>
+
           </div>
         </div>
       </section>

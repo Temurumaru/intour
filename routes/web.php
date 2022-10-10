@@ -175,6 +175,11 @@ if(isset($_SESSION['admin'])) {
 		'App\Http\Controllers\AdminController@addCar'
 	) -> name('addCarC');
 
+	Route::post(
+		'uod_home_wall_c',
+		'App\Http\Controllers\AdminController@updHomeWall'
+	) -> name('updHomeWallC');
+
 	
 	Route::delete(
 		'del_post_blog_c',

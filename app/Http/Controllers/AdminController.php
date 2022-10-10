@@ -129,7 +129,7 @@ class AdminController extends Controller
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 30, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			eval('$fil_ttl = $req -> img_'.$i.'_title;');
 
@@ -241,7 +241,7 @@ class AdminController extends Controller
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 30, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			$imgs_json['img_'.$i] = $fil_path;
 			$img_titles_json['img_'.$i.'_title'] = $fil_ttl;
@@ -365,8 +365,8 @@ class AdminController extends Controller
 		$blog -> views = 0;
 
 		R::store($blog);
-		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
-		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 100, 'jpg');
 
 		return redirect('admin') -> with('success', 'Tourism was updated.');
 
@@ -402,7 +402,7 @@ class AdminController extends Controller
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
 
-		Image::make($file->path())->save(public_path('upl_data/gallery_prevs/').$wlpp, 30, 'jpg');
+		Image::make($file->path())->save(public_path('upl_data/gallery_prevs/').$wlpp, 100, 'jpg');
 
 
 		$gallery_section = R::dispense("gallery_sec");
@@ -497,7 +497,7 @@ class AdminController extends Controller
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
 		}
 		
 		$imgs_json = [];
@@ -544,7 +544,7 @@ class AdminController extends Controller
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 30, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			eval('$fil_ttl = $req -> img_'.$i.'_title;');
 			eval('$fil_ttl_ru = $req -> img_'.$i.'_title;');
@@ -737,8 +737,8 @@ class AdminController extends Controller
 		// $tour ->  = 0;
 		
 		R::store($tour);
-		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
-		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 100, 'jpg');
 		
 		return redirect('admin_tour') -> with('success', 'Tour was created.');
 		
@@ -887,8 +887,8 @@ class AdminController extends Controller
 		// $tour ->  = 0;
 		
 		R::store($tour);
-		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 30, 'jpg');
-		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 30, 'jpg');
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+		if(isset($prv)) Image::make($file2->path())->save(public_path('upl_data/prevs/').$prv, 100, 'jpg');
 		
 		return redirect('admin') -> with('success', 'Tour was updated.');
 		
@@ -986,13 +986,14 @@ class AdminController extends Controller
 
 		$crs = date("YmdHis").rand(0, 99999999).".jpg";
 
-		Image::make($file->path())->save(public_path('upl_data/imgs/').$crs, 30, 'jpg');
+		Image::make($file->path())->save(public_path('upl_data/imgs/').$crs, 100, 'jpg');
 
 
 		$cars = R::dispense("cars");
 
 		$cars -> car_name = $req -> car_name;
 		$cars -> car_name_ru = $req -> car_name_ru;
+		$cars -> category = $req -> category;
 		$cars -> price = $req -> price;
 		$cars -> price_ru = $req -> price_ru;
 		$cars -> wallpaper = $crs;
@@ -1000,6 +1001,120 @@ class AdminController extends Controller
 		R::store($cars);
 
 		return redirect('admin') -> with('success', 'Car was created.');
+
+	}
+
+	public function updHomeWall(Request $req) {
+		$req -> validate([
+			'title_1' => 'required|min:4|max:50',
+			'title_1_ru' => 'required|min:4|max:50',
+			'sub_title_1' => 'required|min:4|max:50',
+			'sub_title_1_ru' => 'required|min:4|max:50',
+
+			'title_2' => 'required|min:4|max:50',
+			'title_2_ru' => 'required|min:4|max:50',
+			'sub_title_2' => 'required|min:4|max:50',
+			'sub_title_2_ru' => 'required|min:4|max:50',
+
+			'title_3' => 'required|min:4|max:50',
+			'title_3_ru' => 'required|min:4|max:50',
+			'sub_title_3' => 'required|min:4|max:50',
+			'sub_title_3_ru' => 'required|min:4|max:50',
+
+		]);
+
+		$max_avatar_size = 2 * 1024 * 1024;
+
+		if(isset($req -> wall_1)) {
+
+			$file = $req -> wall_1;
+			$type = $file -> getMimeType();
+			$error = $file -> getError();
+			$size = $file -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+		}
+
+		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+		}
+
+			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
+
+		}
+		
+		if(isset($req -> wall_2)) {
+
+			$file2 = $req -> wall_1;
+			$type = $file2 -> getMimeType();
+			$error = $file2 -> getError();
+			$size = $file2 -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+		}
+
+		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+		}
+
+			$wlpp2 = date("YmdHis").rand(0, 99999999).".jpg";
+
+		}
+
+		if(isset($req -> wall_3)) {
+
+			$file3 = $req -> wall_3;
+			$type = $file3 -> getMimeType();
+			$error = $file3 -> getError();
+			$size = $file3 -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+		}
+
+		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+		}
+
+			$wlpp3 = date("YmdHis").rand(0, 99999999).".jpg";
+
+		}
+
+		$data = R::findOne('wall_slide', 'id = ?', [1]);
+		$data2 = R::findOne('wall_slide', 'id = ?', [2]);
+		$data3 = R::findOne('wall_slide', 'id = ?', [3]);
+
+
+		$data -> title = $req -> title_1;
+		$data -> title_ru = $req -> title_1_ru;
+		$data -> sub_title = $req -> sub_title_1;
+		$data -> sub_title_ru = $req -> sub_title_1_ru;
+		if(isset($wlpp)) $data -> img = $wlpp;
+
+		$data2 -> title = $req -> title_2;
+		$data2 -> title_ru = $req -> title_2_ru;
+		$data2 -> sub_title = $req -> sub_title_2;
+		$data2 -> sub_title_ru = $req -> sub_title_2_ru;
+		if(isset($wlpp2)) $data2 -> img = $wlpp2;
+
+		$data3 -> title = $req -> title_3;
+		$data3 -> title_ru = $req -> title_3_ru;
+		$data3 -> sub_title = $req -> sub_title_3;
+		$data3 -> sub_title_ru = $req -> sub_title_3_ru;
+		if(isset($wlpp3)) $data3 -> img = $wlpp3;
+
+		R::store($data);
+		R::store($data2);
+		R::store($data3);
+
+		if(isset($wlpp)) Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+		if(isset($wlpp2)) Image::make($file2->path())->save(public_path('upl_data/wallpapers/').$wlpp2, 100, 'jpg');
+		if(isset($wlpp3)) Image::make($file3->path())->save(public_path('upl_data/wallpapers/').$wlpp3, 100, 'jpg');
+
+
+		return redirect('admin_home_wallpaper') -> with('success', 'Wall was updated.');
 
 	}
 

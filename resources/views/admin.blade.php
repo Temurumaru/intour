@@ -66,7 +66,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?tour_srch=id">ID <?=(@$_GET['tour_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?tour_srch=id">ID <?=(@$_GET['tour_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?tour_srch=title">Title <?=(@$_GET['tour_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?tour_srch=title_ru">Title RU <?=(@$_GET['tour_srch'] == 'title_ru') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?tour_srch=price">Price <?=(@$_GET['tour_srch'] == 'price') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
@@ -93,7 +93,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> title?></td>
 									<td><?=$val -> title_ru?></td>
 									<td>$ <?=$val -> price?></td>
@@ -120,7 +120,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?tourism_srch=id">ID <?=(@$_GET['tourism_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?tourism_srch=id">ID <?=(@$_GET['tourism_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?tourism_srch=title">Title <?=(@$_GET['tourism_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?tourism_srch=views">Views <?=(@$_GET['tourism_srch'] == 'views') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col">Action</th>
@@ -164,7 +164,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?cities_srch=id">ID <?=(@$_GET['cities_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?cities_srch=id">ID <?=(@$_GET['cities_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?cities_srch=title">Title <?=(@$_GET['cities_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?cities_srch=views">Views <?=(@$_GET['cities_srch'] == 'views') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col">Action</th>
@@ -209,7 +209,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?srch=id">ID <?=(@$_GET['srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?srch=id">ID <?=(@$_GET['srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?srch=title">Title <?=(@$_GET['srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?srch=lang">Lang <?=(@$_GET['srch'] == 'lang') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?srch=views">Views <?=(@$_GET['srch'] == 'views') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
@@ -234,7 +234,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> title?></td>
 									<td><?=($val -> lang == "en") ? "<span style='padding: 4px;background-color:rgba(54, 54, 226, 0.8);color:black;border-radius:3px;'>EN</span>" : "<span style='padding: 4px;background-color:rgba(220, 45, 45, 0.808);color:black;border-radius:3px;'>RU</span>"?></td>
 									<td><?=$val -> views?></td>
@@ -260,9 +260,10 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?cars_srch=id">ID <?=(@$_GET['cars_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?cars_srch=id">ID <?=(@$_GET['cars_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?cars_srch=car_name">Name <?=(@$_GET['cars_srch'] == 'car_name') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?cars_srch=car_name_ru">Name RU <?=(@$_GET['cars_srch'] == 'car_name_ru') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									<th scope="col"><a href="?cars_srch=category">Category <?=(@$_GET['cars_srch'] == 'category') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col">Action</th>
 								</tr>
 							</thead>
@@ -275,15 +276,17 @@ use RedBeanPHP\R as R;
 								if(@$_GET['cars_srch'] == "id") $cars_srch = "id DESC";
 								if(@$_GET['cars_srch'] == "car_name") $cars_srch = "car_name";
 								if(@$_GET['cars_srch'] == "car_name_ru") $cars_srch = "car_name_ru";
+								if(@$_GET['cars_srch'] == "category") $cars_srch = "category";
 
 
 								$blogs = R::find("cars", "ORDER BY ".$cars_srch);
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> car_name?></td>
 									<td><?=$val -> car_name_ru?></td>
+									<td><?=$val -> category?></td>
 									<td>
 										<a class="btn btn-sm btn-primary" onclick="delCarOnCLick(<?=$val -> id?>, '<?=$val -> car_name?>')" href="">Delete</a>
 									</td>
@@ -303,7 +306,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?sec_gallery_srch=id">ID <?=(@$_GET['sec_gallery_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?sec_gallery_srch=id">ID <?=(@$_GET['sec_gallery_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?sec_gallery_srch=title">Title <?=(@$_GET['sec_gallery_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?sec_gallery_srch=title_ru">Title RU <?=(@$_GET['sec_gallery_srch'] == 'title_ru') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col">Action</th>
@@ -324,7 +327,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> gallery_sec_name?></td>
 									<td><?=$val -> gallery_sec_name_ru?></td>
 									<td>
@@ -346,7 +349,7 @@ use RedBeanPHP\R as R;
 						<table class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
 								<tr class="text-white">
-									<th scope="col"><a href="?gallery_srch=id">ID <?=(@$_GET['gallery_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									{{-- <th scope="col"><a href="?gallery_srch=id">ID <?=(@$_GET['gallery_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
 									<th scope="col"><a href="?gallery_srch=title">Title <?=(@$_GET['gallery_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col"><a href="?gallery_srch=title_ru">Title RU <?=(@$_GET['gallery_srch'] == 'title_ru') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
 									<th scope="col">Action</th>
@@ -367,7 +370,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> title?></td>
 									<td><?=$val -> title_ru?></td>
 									<td>

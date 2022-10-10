@@ -59,107 +59,109 @@ use RedBeanPHP\R as R;
 
 					<div class="col-sm-12 col-xl-6">
 						<div class="bg-secondary rounded h-100 p-4">
-							<form action="{{route('add_section_on_gallery_c')}}" enctype="multipart/form-data" method="post">
+							<form action="{{route('updHomeWallC')}}" enctype="multipart/form-data" method="post">
 								@csrf
 								<h6 class="mb-2">Update home Wallpaper</h6>
 
 								<?php
+									$data = R::findAll('wall_slide');
 									
 								?>
 
+
 								<div class="pt-4">
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="title_1"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_1" id="title"
+										placeholder="Title 1" value="{{$data[1] -> title}}">
 										<label for="floatingInput">Title 1</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="title_1_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_1_ru" id="title_ru"
+										placeholder="Title 1" value="{{$data[1] -> title_ru}}">
 										<label for="floatingInput">Title RU 1</label>
 									</div>
 
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="sub_title_1"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_1" id="sub_title"
+										placeholder="Sub Title 1" value="{{$data[1] -> sub_title}}">
 										<label for="floatingInput">Sub Title 1</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="sub_title_1_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_1_ru" id="sub_title_ru"
+										placeholder="Sub Title 1 RU" value="{{$data[1] -> sub_title_ru}}">
 										<label for="floatingInput">Sub Title RU 1</label>
 									</div>
 
 									<div class="mb-3">
 										<label for="formFile" class="form-label">Wallpaper 1</label>
-										<input class="form-control bg-dark" name="gallery_prev" type="file" id="formFile">
+										<input class="form-control bg-dark" name="wall_1" type="file" id="formFile">
 									</div>
 								</div>
 
 
 								<div class="pt-4">
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="title_2"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_2" id="title_2"
+										placeholder="Title 1" value="{{$data[2] -> title}}">
 										<label for="floatingInput">Title 2</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="title_2_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_2_ru" id="title_2_ru"
+										placeholder="Title 1 RU" value="{{$data[2] -> title_ru}}">
 										<label for="floatingInput">Title RU 2</label>
 									</div>
 
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="sub_title_2"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_2" id="sub_title_2"
+										placeholder="Sub Title 1" value="{{$data[2] -> sub_title}}">
 										<label for="floatingInput">Sub Title 2</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="sub_title_2_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_2_ru" id="sub_title_2_ru"
+										placeholder="Sub Title 1 RU" value="{{$data[2] -> sub_title_ru}}">
 										<label for="floatingInput">Sub Title RU 2</label>
 									</div>
 
 									<div class="mb-3">
 										<label for="formFile" class="form-label">Wallpaper 2</label>
-										<input class="form-control bg-dark" name="gallery_prev" type="file" id="formFile">
+										<input class="form-control bg-dark" name="wall_2" type="file" id="formFile">
 									</div>
 								</div>
 
 
 								<div class="pt-4">
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="title_3"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_3" id="title_3"
+										placeholder="Title 1" value="{{$data[3] -> title}}">
 										<label for="floatingInput">Title 3</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="title_3_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="title_3_ru" id="title_3_ru"
+										placeholder="Title 1 RU" value="{{$data[3] -> title_ru}}">
 										<label for="floatingInput">Title RU 3</label>
 									</div>
 
 									<div class="form-floating">
-										<input type="text" class="form-control" name="gallery_sec_name" id="sub_title_3"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_3" id="sub_title_3"
+										placeholder="Sub Title 1" value="{{$data[3] -> sub_title}}">
 										<label for="floatingInput">Sub Title 3</label>
 									</div>
 
 									<div class="form-floating mt-2 mb-2">
-										<input type="text" class="form-control" name="gallery_sec_name_ru" id="sub_title_3_ru"
-										placeholder="Title">
+										<input type="text" class="form-control" name="sub_title_3_ru" id="sub_title_3_ru"
+										placeholder="Sub Title 1 RU" value="{{$data[3] -> sub_title_ru}}">
 										<label for="floatingInput">Sub Title RU 3</label>
 									</div>
 
 
 									<div class="mb-3">
 										<label for="formFile" class="form-label">Wallpaper 3</label>
-										<input class="form-control bg-dark" name="gallery_prev" type="file" id="formFile">
+										<input class="form-control bg-dark" name="wall_3" type="file" id="formFile">
 									</div>
 								</div>
 

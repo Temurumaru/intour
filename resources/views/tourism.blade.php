@@ -48,15 +48,15 @@ $gallery = json_decode($data -> img, true);
             
             <?= ($_COOKIE['lang'] == 'en') ? $data -> top_text : $data -> top_text_ru ?>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-16 my-3">
-              <div class="">
-                <img class="w-full object-cover" src="<?=(!empty($gallery['img_1'])) ? './upl_data/imgs/'.$gallery['img_1'] : '#' ?>" alt="">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 my-3">
+              <div class="card h-64 rounded-lg   overflow-hidden relative gallery__card gallery__card card "  onclick="card(this)">
+                <img class="w-full h-full  object-cover card__img " src="<?=(!empty($gallery['img_1'])) ? './upl_data/imgs/'.$gallery['img_1'] : '#' ?>" alt="">
               </div>
-              <div class="">
-                <img class=" w-full object-cover" src="<?=(!empty($gallery['img_2'])) ? './upl_data/imgs/'.$gallery['img_2'] : '#' ?>" alt="">
+              <div lass="card h-64 rounded-lg   card  overflow-hidden relative gallery__card"  onclick="card(this)" >
+                <img class=" w-full h-full  object-cover card__img " src="<?=(!empty($gallery['img_2'])) ? './upl_data/imgs/'.$gallery['img_2'] : '#' ?>" alt="">
               </div>
-              <div class="">
-                <img class="w-full object-cover " src="<?=(!empty($gallery['img_3'])) ? './upl_data/imgs/'.$gallery['img_3'] : '#' ?>" alt="">
+              <div lass="card h-64 rounded-lg  card   overflow-hidden relative gallery__card"  onclick="card(this)" >
+                <img class="w-full  h-full object-cover  card__img " src="<?=(!empty($gallery['img_3'])) ? './upl_data/imgs/'.$gallery['img_3'] : '#' ?>" alt="">
               </div>
             </div>
 
