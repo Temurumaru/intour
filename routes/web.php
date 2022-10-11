@@ -176,7 +176,7 @@ if(isset($_SESSION['admin'])) {
 	) -> name('addCarC');
 
 	Route::post(
-		'uod_home_wall_c',
+		'upd_home_wall_c',
 		'App\Http\Controllers\AdminController@updHomeWall'
 	) -> name('updHomeWallC');
 

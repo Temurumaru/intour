@@ -78,7 +78,7 @@ class AdminController extends Controller
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
 
-		Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 20, 'jpg');
+		Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
 
 
 		if(empty($req -> preview_img)) {
@@ -100,7 +100,7 @@ class AdminController extends Controller
 
 		$prv = date("YmdHis").rand(0, 99999999).".jpg";
 
-		Image::make($file->path())->save(public_path('upl_data/prevs/').$prv, 20, 'jpg');
+		Image::make($file->path())->save(public_path('upl_data/prevs/').$prv, 100, 'jpg');
 
 		$imgs_json = [];
 		$img_titles_json = [];
@@ -184,7 +184,7 @@ class AdminController extends Controller
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 20, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
 		
 		}
 
@@ -205,7 +205,7 @@ class AdminController extends Controller
 
 			$prv = date("YmdHis").rand(0, 99999999).".jpg";
 
-			Image::make($file->path())->save(public_path('upl_data/prevs/').$prv, 20, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/prevs/').$prv, 100, 'jpg');
 		}
 
 
@@ -347,7 +347,7 @@ class AdminController extends Controller
 
 			$imgs_json['img_'.$i] = $fil_path;
 
-			Image::make($file3->path())->save(public_path('upl_data/imgs/').$fil_path, 20, 'jpg');
+			Image::make($file3->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			$i++;
 		}
@@ -460,7 +460,7 @@ class AdminController extends Controller
 			$gl -> sec_id = $req -> section;
 
 			R::store($gl);
-			Image::make($file->path())->save(public_path('upl_data/gallery/').$fil_path, 15, 'jpg');
+			Image::make($file->path())->save(public_path('upl_data/gallery/').$fil_path, 100, 'jpg');
 
 			$i++;
 		}
