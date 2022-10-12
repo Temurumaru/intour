@@ -384,6 +384,51 @@ use RedBeanPHP\R as R;
 					</div>
 				</div>
 
+				<div class=" mt-3 bg-secondary text-center rounded p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<h3 class="mb-0">Text pages</h3>
+					</div>
+					<div class="table-responsive">
+						<table class="table text-start align-middle table-bordered table-hover mb-0">
+							<thead>
+								<tr class="text-white">
+									{{-- <th scope="col"><a href="?txt_page_srch=id">ID <?=(@$_GET['txt_page_srch'] == 'id') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th> --}}
+									<th scope="col"><a href="?txt_page_srch=title">Title <?=(@$_GET['txt_page_srch'] == 'title') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									<th scope="col"><a href="?txt_page_srch=title_ru">Title RU <?=(@$_GET['txt_page_srch'] == 'title_ru') ? '<i class="bi bi-caret-down-fill"></i>' : ''?></a></th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<?php
+
+								$txt_page_srch = "id";
+
+								if(@$_GET['txt_page_srch'] == "id") $txt_page_srch = "id DESC";
+								if(@$_GET['txt_page_srch'] == "title") $txt_page_srch = "title";
+								if(@$_GET['txt_page_srch'] == "title_ru") $txt_page_srch = "title_ru";
+
+
+								$pages = R::find("text_pages", "ORDER BY ".$txt_page_srch);
+								foreach ($pages as $val) { ?>
+
+								<tr>
+									{{-- <td><?=$val -> id?></td> --}}
+									<td><?=$val -> title?></td>
+									<td><?=$val -> title_ru?></td>
+									<td>
+										<a class="btn btn-sm btn-success" target="_blank" href="/text_page?id=<?=$val -> id?>">Open</a>
+										<a class="btn btn-sm btn-warning" href="/admin_text_page_upd?id=<?=$val -> id?>">Edit</a>
+										<a class="btn btn-sm btn-primary" onclick="delTxtPageOnCLick(<?=$val -> id?>, '<?=$val -> title?>')" href="">Delete</a>
+									</td>
+								</tr>
+								<?php }?>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</div>
 			<!-- Recent Sales End -->
 
@@ -401,6 +446,25 @@ use RedBeanPHP\R as R;
 				$.ajax({
 					type: "delete",
 					url: "{{route('delPostBlogC')}}",
+					headers: {
+						'X-CSRF-TOKEN': '{{ csrf_token() }}'
+					},
+					data: {
+						id: id
+					},
+					dataType: "html",
+					success: function (data) {
+						location.reload();
+					}
+				});
+			}
+		}
+
+		function delTxtPageOnCLick(id, ps_title) {
+			if(confirm('Вы точно хотите удалить '+ps_title)) {
+				$.ajax({
+					type: "delete",
+					url: "{{route('delTextPageC')}}",
 					headers: {
 						'X-CSRF-TOKEN': '{{ csrf_token() }}'
 					},

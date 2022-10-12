@@ -9,7 +9,7 @@ define('LN', [
   "the world with khiva" => "THE WORLD WITH KHIVA",
   "previous" => "Previous",
   "choose your place" => "CHOOSE YOUR PLACE",
-  "popular" => "popular tours",
+  "popular" => "popular",
   "tours" => "tours",
   "samarkand tour" => "Samarkand Tour",
   "open main menu" => "Open main menu",

@@ -57,7 +57,7 @@ class AdminController extends Controller
 			'bottom_text' => 'required|min:20|max:6000',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> wallpaper_img)) {
 			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
@@ -165,7 +165,7 @@ class AdminController extends Controller
 			'bottom_text' => 'required|min:20|max:6000',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(isset($req -> wallpaper_img)) {
 
@@ -275,7 +275,7 @@ class AdminController extends Controller
 			'bottom_text' => 'required|min:50|max:6000',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(isset($req -> wallpaper_img)) {
 
@@ -378,7 +378,7 @@ class AdminController extends Controller
 			'gallery_sec_name_ru' => 'required|min:4|max:25',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> gallery_prev)) {
 			return redirect() -> back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
@@ -420,7 +420,7 @@ class AdminController extends Controller
 
 	public function addPictureOnGallery(Request $req) {
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		$i = 1;
 		while($i <= 201) {
@@ -478,7 +478,7 @@ class AdminController extends Controller
 			'historial_places_ru' => 'required|min:20|max:2700',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(isset($req -> wallpaper_img)) {
 
@@ -618,7 +618,7 @@ class AdminController extends Controller
 			'info_text_ru' => 'required|min:20|max:6400',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> wallpaper_img)) {
 			return redirect() -> back() -> withErrors(['wallpaper' => 'Wallpaper image not found.']);
@@ -772,7 +772,7 @@ class AdminController extends Controller
 			'info_text_ru' => 'required|min:20|max:6400',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(isset($req -> wallpaper_img)) {
 
@@ -962,7 +962,7 @@ class AdminController extends Controller
 			'price_ru' => 'required|numeric',
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> car_img)) {
 			return redirect() -> back() -> withErrors(['car_img' => 'Wallpaper image not found.']);
@@ -1023,7 +1023,7 @@ class AdminController extends Controller
 
 		]);
 
-		$max_avatar_size = 2 * 1024 * 1024;
+		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(isset($req -> wall_1)) {
 
@@ -1046,7 +1046,7 @@ class AdminController extends Controller
 		
 		if(isset($req -> wall_2)) {
 
-			$file2 = $req -> wall_1;
+			$file2 = $req -> wall_2;
 			$type = $file2 -> getMimeType();
 			$error = $file2 -> getError();
 			$size = $file2 -> getSize();
@@ -1118,5 +1118,120 @@ class AdminController extends Controller
 
 	}
 
-}
+	public function addTextPage(Request $req) {
+		$req -> validate([
+			'title' => 'required|min:4|max:18',
+			'title_ru' => 'required|min:4|max:18',
+			'header' => 'required|min:4|max:60',
+			'header_ru' => 'required|min:4|max:60',
+			'text' => 'required|min:4|max:30000',
+			'text_ru' => 'required|min:4|max:32000',
+		]);
 
+		$max_avatar_size = 3 * 1024 * 1024;
+
+		if(empty($req -> wallpaper_img)) {
+			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
+		}
+
+		$file = $req -> wallpaper_img;
+		$type = $file -> getMimeType();
+		$error = $file -> getError();
+		$size = $file -> getSize();
+
+		if(empty($req -> wallpaper_img)) {
+			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Preview image not found.']);
+		}
+		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+		}
+
+		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+			return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+		}
+
+		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
+
+		Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+
+
+		$page = R::dispense("text_pages");
+
+		$page -> title = $req -> title;
+		$page -> title_ru = $req -> title_ru;
+		$page -> header = $req -> header;
+		$page -> header_ru = $req -> header_ru;
+		$page -> text = $req -> text;
+		$page -> text_ru = $req -> text_ru;
+		$page -> img = $wlpp;
+
+		R::store($page);
+
+		return redirect('admin') -> with('success', 'Page was created.');
+
+	}
+
+	public function updTextPage(Request $req) {
+		$req -> validate([
+			'title' => 'required|min:4|max:18',
+			'title_ru' => 'required|min:4|max:18',
+			'header' => 'required|min:4|max:60',
+			'header_ru' => 'required|min:4|max:60',
+			'text' => 'required|min:4|max:30000',
+			'text_ru' => 'required|min:4|max:32000',
+		]);
+
+		$max_avatar_size = 3 * 1024 * 1024;
+
+		if(!isset($req -> id)) {
+			return false;
+		}
+
+		if(isset($req -> wallpaper_img)) {
+
+			$file = $req -> wallpaper_img;
+			$type = $file -> getMimeType();
+			$error = $file -> getError();
+			$size = $file -> getSize();
+
+			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
+				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+			}
+
+			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
+				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+			}
+
+			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
+
+			Image::make($file->path())->save(public_path('upl_data/wallpapers/').$wlpp, 100, 'jpg');
+		
+		}
+
+		$page = R::findOne("text_pages", "id = ?", [$req -> id]);
+
+		$page -> title = $req -> title;
+		$page -> title_ru = $req -> title_ru;
+		$page -> header = $req -> header;
+		$page -> header_ru = $req -> header_ru;
+		$page -> text = $req -> text;
+		$page -> text_ru = $req -> text_ru;
+		if(isset($wlpp)) $page -> img = $wlpp;
+
+		R::store($page);
+
+		return redirect('admin') -> with('success', 'Page was updated.');
+
+	}
+
+	public function delTextPage(Request $req) {
+		if(isset($req -> id) && isset($_SESSION['admin'])) {
+			$text_page = R::findOne("text_pages", "id = ?", [$req -> id]);
+			R::trash($text_page);
+			echo "true";
+		} else {
+			echo false;
+		}
+	}
+
+}

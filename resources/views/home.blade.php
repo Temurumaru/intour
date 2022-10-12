@@ -482,6 +482,22 @@ use RedBeanPHP\R as R;
                           >{{LN['_contact us']}}</a
                         >
                       </li>
+
+                      <?php
+                      $lst = R::findAll('text_pages');
+                      foreach ($lst as $vl) {
+                      ?>
+                      
+                      <li>
+                        <a
+                          href="/text_page?id={{$vl -> id}}"
+                          class="block px-4 py-2 hover:bg-gray-100 "
+                          >{{(@$_COOKIE['lang'] != 'ru') ? $vl -> title : $vl -> title_ru}}</a
+                        >
+                      </li>
+
+                      <?php }?>
+
                     </ul>
                     
                   </div>
@@ -708,7 +724,7 @@ use RedBeanPHP\R as R;
           ?>
 
             <div data-aos="fade-right"  class="card relative sm:col-span-2 overflow-hidden">
-              <a href="/tour?id=<?=$vl['id']?>"><img class="card__img w-full sm:h-full h-60 object-cover rounded-md" src="/upl_data/wallpapers/<?=$vl['wallpaper']?>" alt="">
+              <a href="/tour?id=<?=$vl['id']?>"><img class="card__img w-full sm:h-full h-60 object-cover rounded-md" src="/upl_data/prevs/<?=$vl['preview']?>" alt="">
               <div class="card-blur w-full  h-full absolute -bottom-full left-0"></div>
               <div class="card__title  w-full md:px-5  px-2  absolute left-0 -bottom-6 ">
                 <div class="flex justify-between items-center">
@@ -746,7 +762,7 @@ use RedBeanPHP\R as R;
             ?>
 
             <div data-aos="fade-left"   class="card relative overflow-hidden">
-              <a href="/tour?id=<?=$vl['id']?>"><img class="card__img w-full sm:h-full h-60 rounded-md object-cover" src="/upl_data/prevs/<?=$vl['preview']?>" alt="">
+              <a href="/tour?id=<?=$vl['id']?>"><img class="card__img w-full sm:h-full h-80 rounded-md object-cover" src="/upl_data/prevs/<?=$vl['preview']?>" alt="">
               <div class="card-blur w-full  h-full absolute -bottom-full left-0"></div>
               <div class="card__title  w-full md:px-5   px-2 absolute left-0 -bottom-6 ">
                 <div class="flex justify-between items-center">
@@ -996,7 +1012,7 @@ use RedBeanPHP\R as R;
 
             <a href="/car?category=regular" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
               <div class="relative car overflow-hidden rounded-lg">
-                <img class="w-full max-h-[500px] object-cover" src="/img/regular.png">
+                <img class="w-full max-h-[500px] h-[20rem]  md:h-[15rem] lg:h-[40rem]   object-cover" src="/img/regular.png">
                 <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
                 <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
                   <div class="flex justify-between items-center">
@@ -1010,7 +1026,7 @@ use RedBeanPHP\R as R;
 
             <a href="/car?category=group" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
               <div class="relative car overflow-hidden rounded-lg">
-                <img class="w-full max-h-[500px] object-cover" src="/img/group.png">
+                <img class="w-full max-h-[500px] h-[20rem]  md:h-[15rem] lg:h-[40rem]  object-cover" src="/img/group.png">
                 <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
                 <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
                   <div class="flex justify-between items-center">
@@ -1024,7 +1040,7 @@ use RedBeanPHP\R as R;
 
             <a href="/car?category=vip" data-aos-delay="100" data-aos="fade-up" class="relative  rounded-lg w-3/4 mx-auto md:w-full">
               <div class="relative car overflow-hidden rounded-lg">
-                <img class="w-full max-h-[500px] object-cover" src="/img/vip.png">
+                <img class="w-full max-h-[500px] h-[20rem]  md:h-[15rem] lg:h-[40rem]  object-cover" src="/img/vip.png">
                 <div class="card-blur w-full   h-full absolute -bottom-full left-0"></div>
                 <div class="card__title  w-full md:px-5 px-2  absolute left-0 bottom-2 ">
                   <div class="flex justify-between items-center">

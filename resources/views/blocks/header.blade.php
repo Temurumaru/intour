@@ -1,3 +1,7 @@
+<?php 
+use RedBeanPHP\R as R;
+?>
+
 <div class="hidden py-2 text-white md:block nav__top bg-bgColor">
   <div class="container flex justify-between mx-auto">
     <div>
@@ -433,6 +437,22 @@
                   >{{LN['_contact us']}}</a
                 >
               </li>
+
+              <?php
+              $lst = R::findAll('text_pages');
+              foreach ($lst as $vl) {
+              ?>
+              
+              <li>
+                <a
+                  href="/text_page?id={{$vl -> id}}"
+                  class="block px-4 py-2 capitalize hover:bg-gray-100   "
+                  >{{(@$_COOKIE['lang'] != 'ru') ? $vl -> title : $vl -> title_ru}}</a
+                >
+              </li>
+
+              <?php }?>
+
             </ul>
             
           </div>

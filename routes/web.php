@@ -130,6 +130,14 @@ if(isset($_SESSION['admin'])) {
 		return view('admin_tourism');
 	}) -> name('admin_tourism');
 
+	Route::get('/admin_text_page', function () {
+		return view('admin_text_page');
+	}) -> name('admin_text_page');
+
+	Route::get('/admin_text_page_upd', function () {
+		return view('admin_text_page_upd');
+	}) -> name('admin_text_page_upd');
+
 	Route::post(
 		'/add_post_on_blog_c',
 		'App\Http\Controllers\AdminController@addPostOnBlog'
@@ -180,6 +188,16 @@ if(isset($_SESSION['admin'])) {
 		'App\Http\Controllers\AdminController@updHomeWall'
 	) -> name('updHomeWallC');
 
+	Route::post(
+		'add_text_page',
+		'App\Http\Controllers\AdminController@addTextPage'
+	) -> name('addTextPageC');
+
+	Route::post(
+		'admin_text_page_upd_c',
+		'App\Http\Controllers\AdminController@updTextPage'
+	) -> name('updTextPageC');
+
 	
 	Route::delete(
 		'del_post_blog_c',
@@ -205,6 +223,11 @@ if(isset($_SESSION['admin'])) {
 		'del_car_c',
 		'App\Http\Controllers\AdminController@delCar'
 	) -> name('delCarC');
+
+	Route::delete(
+		'del_text_page',
+		'App\Http\Controllers\AdminController@delTextPage'
+	) -> name('delTextPageC');
 	
 	if($_SESSION['admin'] -> level >= 5) {
 		Route::get('/admin_creator', function () {

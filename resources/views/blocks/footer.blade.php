@@ -21,7 +21,7 @@
         </div>
         <div>
           <h5 class="text-lg font-bold">{{LN['write to us']}}</h5>
-          <p class="text-md">info@intours.uz</p>
+          <p class="text-md">info@intour.uz</p>
         </div>
       </div>
       <div class="flex items-center text-white">
@@ -66,18 +66,18 @@
             <h2 class="text-capitalize">{{LN['pages']}}</h2>
           </li>
           <li>
-            <a href="#">{{LN['about us']}}</a>
+            <a href="/about">{{LN['about us']}}</a>
           </li>
-          <li>
-            <a href="#">
+          {{-- <li>
+            <a href="/destinations">
             {{LN['tours']}}
             </a>
+          </li> --}}
+          <li>
+            <a href="/destinations">{{LN['destinations']}}</a>
           </li>
           <li>
-            <a href="#">{{LN['destinations']}}</a>
-          </li>
-          <li>
-            <a href="#">{{LN['our blogs']}}</a>
+            <a href="/blog_sub">{{LN['our blogs']}}</a>
           </li>
         </ul>
       </div>
