@@ -113,7 +113,7 @@ define('LN', [
   "DISCOVER THE WORLD OF ORIENTAL FAIRY TALES TOGETHER WITH" => "ОТКРОЙТЕ МИР ВОСТОЧНОЙ СКАЗКИ ВМЕСТЕ С ",
   "Uzbekistan , Tashkent , Navoi 2" => "Узбекистан , Ташкент , Навоий 2",
   "other cities" => "Остальные города",
-  "" => "",
+  "blogs" => "Блоги",
   "" => "",
   "" => "",
   "" => "",

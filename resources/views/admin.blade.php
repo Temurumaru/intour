@@ -141,7 +141,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> title?></td>
 									<td><?=$val -> views?></td>
 									<td>
@@ -185,7 +185,7 @@ use RedBeanPHP\R as R;
 								foreach ($blogs as $val) { ?>
 
 								<tr>
-									<td><?=$val -> id?></td>
+									{{-- <td><?=$val -> id?></td> --}}
 									<td><?=$val -> title?></td>
 									<td><?=$val -> views?></td>
 									<td>

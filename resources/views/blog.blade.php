@@ -20,7 +20,7 @@ $gl_titles = json_decode($data -> img_titles, true);
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intour/Blogs</title>
+  <title>Intour/Blog</title>
   @include('blocks.head_imp')
 </head>
 
@@ -32,8 +32,8 @@ $gl_titles = json_decode($data -> img_titles, true);
         class="header__content bg-[url('./upl_data/wallpapers/<?=$data -> wallpaper?>')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
         <div class="container mx-auto">
           <h2 class="text-3xl md:text-6xl font-bold mb-3 uppercase"><?=$data -> title?>
-          <h3 class="text-lg md:text-2xl font-semibold"><a href="./index.html">Home</a> / 
-              <a href="#"> Blogs</a>/
+          <h3 class="text-lg md:text-2xl font-semibold"><a href="/">{{LN['home']}}</a> / 
+              <a href="/blog_sub"> {{LN['blogs']}}</a>/
               <span class="text-logoColor">
                 <a href="#"><?=$data -> title?></a></span>
               </h3>
@@ -122,49 +122,74 @@ $gl_titles = json_decode($data -> img_titles, true);
                 </h2>
               </div>
               <div class="  p-3 pb-0 pt-0">
-                <div class="flex pt-2 pb-3 border-b-2 ">
-                  <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./project/image/Blog foto.png" alt="">
-                  <div>
-                    <span class="text-gray-400">
-                      1 September, 2022
-                    </span>
-                    <p class="">The Ancient Mosque City
-                      Bukhara, Uzbekistan</p>
-                  </div>
-                </div>
                
-                <div class="flex pt-2 pb-3 border-b-2 ">
-                  <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./project/image/Blog foto.png" alt="">
-                  <div>
-                    <span class="text-gray-400">
-                      1 September, 2022
-                    </span>
-                    <p class="">The Ancient Mosque City
-                      Bukhara, Uzbekistan</p>
-                  </div>
-                </div>
-                
-                <div class="flex pt-2 pb-3 border-b-2 ">
-                  <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./project/image/Blog foto.png" alt="">
-                  <div>
-                    <span class="text-gray-400">
-                      1 September, 2022
-                    </span>
-                    <p >The Ancient Mosque City
-                      Bukhara, Uzbekistan</p>
-                  </div>
-                </div>
-                
-                <div class="flex pt-2 pb-3 ">
-                  <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./project/image/Blog foto.png" alt="">
-                  <div>
-                    <span class="text-gray-400">
-                      1 September, 2022
-                    </span>
-                    <p >The Ancient Mosque City
-                      Bukhara, Uzbekistan</p>
-                  </div>
-                </div>
+                <?php
+          
+          if(@$_COOKIE['lang'] != "ru") {
+          $arr = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+          ];
+        } else {
+          $arr = [
+            'Янв',
+            'Фев',
+            'Мрт',
+            'Апр',
+            'Май',
+            'Июн',
+            'Июл',
+            'Авг',
+            'Сен',
+            'Окт',
+            'Ноя',
+            'Дек'
+          ];
+        }
+          $bl_lng = (@$_COOKIE['lang'] != 'ru') ? 'en' : 'ru';
+          $blogs = R::find("blog","lang = ? ORDER BY IF(views > 0, 1, 1), views DESC LIMIT 4", [$bl_lng]);
+          foreach ($blogs as $val) { 
+            $month = intval((explode(" ", $val -> date)[0]) - 1);  
+            ?>
+
+            {{-- <a ><div  data-aos-delay="100" data-aos="fade-up" class="relative rounded-lg travel__card w-3/4 mx-auto md:w-full">
+              <span class="absolute top-[5%] left-[5%] bg-logoColor p-2 text-xs uppercase text-center text-white rounded-lg">
+                <?=$arr[$month]?> <br>
+                <?=str_replace(",", "", (explode(" ", $val -> date)[1]))?>
+              </span>
+              <img class="w-full h-[250px]  md:h-[300px]    rounded-lg  max-h-[300px]  object-cover" src="./upl_data/prevs/<?=$val -> preview?>" alt="">
+              <div class="absolute -bottom-10 left-[5%] w-[90%] bg-white rounded-lg  p-5 travel__card-content">
+                <h2 class="text-logoColor text-lg">
+                  Travel
+                </h2>
+                <p class="font-bold lg:text-xl text-md font-medium">
+                  <?=$val -> title?>
+                </p>
+              </div>
+            </div></a> --}}
+
+            <a href="/blog?post_id=<?=$val -> id?>" class="flex pt-2 pb-3 border-b-2 ">
+              <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./upl_data/prevs/<?=$val -> preview?>" alt="">
+              <div>
+                <span class="text-gray-400">
+                  <?=str_replace(",", "", (explode(" ", $val -> date)[1]))?> <?=$arr[$month]?>, <?=str_replace(",", "", (explode(" ", $val -> date)[2]))?>
+                </span>
+                <p class="">{{$val -> title}}</p>
+              </div>
+            </a>
+            
+            <?php }?>
+
               </div>
             </div>
           </div>

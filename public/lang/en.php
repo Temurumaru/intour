@@ -113,7 +113,7 @@ define('LN', [
   "DISCOVER THE WORLD OF ORIENTAL FAIRY TALES TOGETHER WITH" => "DISCOVER THE WORLD OF ORIENTAL FAIRY TALES TOGETHER WITH ",
   "Uzbekistan , Tashkent , Navoi 2" => "Uzbekistan , Tashkent , Navoi 2",
   "other cities" => "Other Cities",
-  "" => "",
+  "blogs" => "Blogs",
   "" => "",
   "" => "",
   "" => "",
