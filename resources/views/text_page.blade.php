@@ -1,7 +1,16 @@
 <?php 
 use RedBeanPHP\R as R;
+use League\CommonMark\CommonMarkConverter;
+
+$md = new CommonMarkConverter([
+    'html_input' => 'strip',
+    'allow_unsafe_links' => false,
+]);
+
 
 $dt = R::findOne("text_pages", "id = ?", [$_GET['id']]);
+
+$txt = $md -> convert((@$_COOKIE['lang'] != 'ru') ? $dt -> text : $dt -> text_ru);
 
 
 ?>
@@ -14,6 +23,119 @@ $dt = R::findOne("text_pages", "id = ?", [$_GET['id']]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intour/<?=(@$_COOKIE['lang'] != 'ru') ? $dt -> title : $dt -> title_ru?></title>
     @include('blocks.head_imp')
+
+    <style>
+
+      article * {
+        font-family: "Inter" , sans-serif;
+      }
+
+      article > h1 {
+        font-size: 3.25rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article > h2 {
+        font-size: 2.75rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article > h3 {
+        font-size: 2.25rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+      
+      article > h4 {
+        font-size: 1.85rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article > h5 {
+        font-size: 1.35rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article > h6 {
+        font-size: 0.99rem !important;
+        margin-top: 0.9rem !important;
+      }
+
+      article > ul {
+        list-style-type: disc !important;
+        margin-left: 1.7rem !important;
+      }
+
+      article > ol {
+        list-style-type: decimal !important;
+        margin-left: 1.7rem !important;
+      }
+
+      article * h1 {
+        font-size: 3.25rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article * h2 {
+        font-size: 2.75rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article * h3 {
+        font-size: 2.25rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+      
+      article * h4 {
+        font-size: 1.85rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article * h5 {
+        font-size: 1.35rem !important;
+        margin-top: 0.9rem !important;
+        color: #F57F26;
+      }
+
+      article * h6 {
+        font-size: 0.99rem !important;
+        margin-top: 0.9rem !important;
+      }
+
+      article * ul {
+        list-style-type: disc !important;
+        margin-left: 1.7rem !important;
+      }
+
+      article * ol {
+        list-style-type: decimal !important;
+        margin-left: 1.7rem !important;
+      }
+
+      article > a {
+        color: #F57F26;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      article * a {
+        color: #F57F26;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      article > p {
+        margin-top: 1rem !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -37,9 +159,9 @@ $dt = R::findOne("text_pages", "id = ?", [$_GET['id']]);
         <article class="container mx-auto">
           <h3 class="text-bgColor mb-3 text-2xl my-5 font-semibold"><?=(@$_COOKIE['lang'] != 'ru') ? $dt -> header : $dt -> header_ru?></h3>
 
-          <p class="text-bgColor mb-5">
-            <?=(@$_COOKIE['lang'] != 'ru') ? $dt -> text : $dt -> text_ru?>
-          </p>
+          {{-- <p class="text-bgColor mb-5"> --}}
+            <?=$txt?>
+          {{-- </p> --}}
         </article>
       </section>
 
