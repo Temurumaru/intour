@@ -2,6 +2,10 @@
 use RedBeanPHP\R as R;
 ?>
 
+<div class="loader-wrapper">
+  <span class="loader"></span>
+</div>
+
 <div class="hidden py-2 text-white md:block nav__top bg-bgColor">
   <div class="container flex justify-between mx-auto">
     <div>

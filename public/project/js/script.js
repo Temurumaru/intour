@@ -1,12 +1,12 @@
 window.addEventListener("DOMContentLoaded" , () => {
-    const loader = document.querySelector(".loader");
+  const loader = document.querySelector(".loader-wrapper");
+  setTimeout(function () {
+    loader.style.opacity = 0;
     setTimeout(function () {
-      loader.style.opacity = 0;
-      setTimeout(function () {
-        loader.style.display = "none";
-      }, 1500);
-    }, 2000);
-  
+      loader.style.display = "none";
+    }, 2500);
+  }, 3000);
+});
 
   // window.onload = () => {
   //   // (A) GET LIGHTBOX & ALL .ZOOMD IMAGES
@@ -58,7 +58,6 @@ window.addEventListener("DOMContentLoaded" , () => {
     body.style.overflow='inherit'
   }
   
-  })
 
   function setLang(lang) {
     document.cookie = "lang="+lang;

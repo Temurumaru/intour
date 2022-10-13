@@ -45,8 +45,11 @@ use RedBeanPHP\R as R;
     <link rel="stylesheet" href="./project/css/style.css" />
   </head>
   <body>
-    <div class="wrapper overflow-hidden">
+    <div class="wrapper overflow-hidden relative">
       <header class="relative" id="header">
+        <div class="loader-wrapper">
+          <span class="loader"></span>
+        </div>
         <div class="hidden py-2 text-white md:block nav__top bg-bgColor">
           <div class="container flex justify-between mx-auto">
             <div>
