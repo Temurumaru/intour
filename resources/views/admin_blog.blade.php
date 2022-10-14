@@ -65,7 +65,7 @@
 								</span>
 
 								<div class="form-floating mb-3">
-									<input type="text" name="title" required class="form-control" id="floatingInput"
+									<input type="text" name="title" required class="form-control" id="floatingInput" minlength="4" maxlength="50"
 										placeholder="Title">
 									<label for="floatingInput">Title</label>
 								</div>

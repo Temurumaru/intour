@@ -222,7 +222,7 @@ class AdminController extends Controller
 			eval('$file = $req -> img_'.$i.';');
 			eval('$fil_ttl = $req -> img_'.$i.'_title;');
 			if(!$file) {
-				$imgs_json['img_'.$i] = $gallery['img_'.$i];
+				$imgs_json['img_'.$i] = (isset($gallery['img_'.$i])) ? $gallery['img_'.$i] : "";
 				$img_titles_json['img_'.$i.'_title'] = $fil_ttl;
 				$i++;
 				continue;
@@ -255,6 +255,7 @@ class AdminController extends Controller
 		if(isset($prv)) $blog -> preview = $prv;
 		$blog -> top_text = $req -> top_text;
 		if(isset($req -> bottom_text)) $blog -> bottom_text = $req -> bottom_text;
+		if(!isset($req -> bottom_text)) $blog -> bottom_text = "";
 		$blog -> img = (string)json_encode($imgs_json);
 		$blog -> img_titles = (string)json_encode($img_titles_json);
 		$blog -> views = 0;
@@ -327,7 +328,7 @@ class AdminController extends Controller
 			$fil_path = '';
 			eval('$file3 = $req -> img_'.$i.';');
 			if(!$file3) {
-				$imgs_json['img_'.$i] = $gallery['img_'.$i];
+				$imgs_json['img_'.$i] = (isset($gallery['img_'.$i])) ? $gallery['img_'.$i] : "";
 				$i++;
 				continue;
 			}
@@ -346,7 +347,7 @@ class AdminController extends Controller
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
 			$imgs_json['img_'.$i] = $fil_path;
-			File::delete(public_path('upl_data/imgs/').$gallery['img_'.$i]);
+			File::delete(public_path('upl_data/imgs/').(isset($gallery['img_'.$i])) ? $gallery['img_'.$i] : "");
 			Image::make($file3->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			$i++;
@@ -523,7 +524,7 @@ class AdminController extends Controller
 			eval('$fil_ttl = $req -> img_'.$i.'_title;');
 			eval('$fil_ttl_ru = $req -> img_'.$i.'_title_ru;');
 			if(!$file) {
-				$imgs_json['img_'.$i] = $gallery['img_'.$i];
+				$imgs_json['img_'.$i] = (isset($gallery['img_'.$i])) ? $gallery['img_'.$i] : "";
 				$img_titles_json['img_'.$i.'_title'] = $fil_ttl;
 				$img_titles_ru_json['img_'.$i.'_title'] = $fil_ttl_ru;
 				$i++;
