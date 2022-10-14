@@ -147,7 +147,7 @@ $txt = $md -> convert((@$_COOKIE['lang'] != 'ru') ? $dt -> text : $dt -> text_ru
       <header class="relative">
         @include('blocks.header')
         <div
-          class="header__content bg-[url('upl_data/wallpapers/{{$dt -> img}}')] md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
+          class="header__content bg-center bg-[url('upl_data/wallpapers/{{$dt -> img}}')] md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
         >
           <div class="container mx-auto">
             <h2 class="text-3xl md:text-6xl font-bold mb-3"><?=(@$_COOKIE['lang'] != 'ru') ? $dt -> title : $dt -> title_ru?></h2>

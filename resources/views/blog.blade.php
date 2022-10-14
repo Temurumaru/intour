@@ -29,7 +29,7 @@ $gl_titles = json_decode($data -> img_titles, true);
     <header class="relative">
       @include('blocks.header')
       <div
-        class="header__content bg-[url('./upl_data/wallpapers/<?=$data -> wallpaper?>')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
+        class="header__content bg-center bg-[url('./upl_data/wallpapers/<?=$data -> wallpaper?>')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
         <div class="container mx-auto">
           <h2 class="text-3xl md:text-6xl font-bold mb-3 uppercase"><?=$data -> title?>
           <h3 class="text-lg md:text-2xl font-semibold"><a href="/">{{LN['home']}}</a> / 

@@ -11,7 +11,7 @@
     <div class="wrapper overflow-hidden">
       <header class="relative">
         @include('blocks.header')
-        <div  class="header__content contact__bg bg-[url('./project/image/bg-about.png')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
+        <div  class="header__content contact__bg bg-center bg-[url('./project/image/bg-about.png')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
           <div class="container mx-auto">
             <h2 class="text-3xl md:text-6xl font-bold mb-3" data-aos="fade-right">{{LN['contact us']}}</h2>
             <h3 class="text-lg md:text-2xl font-semibold" data-aos="fade-right" >{{LN['home']}}/ <span class="text-logoColor"> {{LN['contact']}}</span></h3>

@@ -27,7 +27,7 @@ $gl_titles = json_decode((@$_COOKIE['lang'] != 'ru') ? $data -> img_titles : $da
     <header class="relative">
       @include('blocks.header')
       <div
-        class="header__content bg-[url('/upl_data/wallpapers/<?=$data -> wallpaper?>')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
+        class="header__content bg-center bg-[url('/upl_data/wallpapers/<?=$data -> wallpaper?>')]  md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover">
         <div class="container mx-auto">
           <h2 class="text-3xl md:text-6xl font-bold mb-3 uppercase"><?=(@$_COOKIE['lang'] != 'ru') ? $data -> title : $data -> title_ru?>
            </h2>

@@ -21,7 +21,7 @@ $gl = R::find("gallery", "sec_id = ?", [$_GET['id']]);
       <header class="relative">
         @include('blocks.header')
         <div
-          class="header__content bg-[url('./project/image/bg-about.png')] md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
+          class="header__content bg-center bg-[url('./project/image/bg-about.png')] md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
         >
           <div class="container mx-auto">
             <h2 class="text-3xl md:text-6xl font-bold mb-3">{{LN['gallery']}}</h2>
