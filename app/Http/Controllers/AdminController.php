@@ -346,7 +346,7 @@ class AdminController extends Controller
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
 
 			$imgs_json['img_'.$i] = $fil_path;
-
+			File::delete(public_path('upl_data/imgs/').$gallery['img_'.$i]);
 			Image::make($file3->path())->save(public_path('upl_data/imgs/').$fil_path, 100, 'jpg');
 
 			$i++;
@@ -958,6 +958,8 @@ class AdminController extends Controller
 		$req -> validate([
 			'car_name' => 'required|min:4|max:25',
 			'car_name_ru' => 'required|min:4|max:25',
+			'car_description' => 'required|min:4|max:60',
+			'car_description_ru' => 'required|min:4|max:60',
 			'price' => 'required|numeric',
 			'price_ru' => 'required|numeric',
 		]);
@@ -993,6 +995,8 @@ class AdminController extends Controller
 
 		$cars -> car_name = $req -> car_name;
 		$cars -> car_name_ru = $req -> car_name_ru;
+		$cars -> car_description = $req -> car_description;
+		$cars -> car_description_ru = $req -> car_description_ru;
 		$cars -> category = $req -> category;
 		$cars -> price = $req -> price;
 		$cars -> price_ru = $req -> price_ru;

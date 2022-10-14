@@ -82,6 +82,18 @@ use RedBeanPHP\R as R;
 								</div>
 
 								<div class="form-floating mt-2 mb-2">
+									<input type="text" class="form-control" name="car_description"
+									placeholder="Car Description">
+									<label for="floatingInput">Car Description</label>
+								</div>
+								
+								<div class="form-floating mt-2 mb-2">
+									<input type="text" class="form-control" name="car_description_ru"
+									placeholder="Carc Description RU">
+									<label for="floatingInput">Car Description RU</label>
+								</div>
+
+								<div class="form-floating mt-2 mb-2">
 									<input type="number" min="0" class="form-control" name="price"
 									placeholder="Price">
 									<label for="floatingInput">Price</label>

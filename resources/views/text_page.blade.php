@@ -133,7 +133,11 @@ $txt = $md -> convert((@$_COOKIE['lang'] != 'ru') ? $dt -> text : $dt -> text_ru
       }
 
       article > p {
-        margin-top: 1rem !important;
+        margin-top: 0.8rem !important;
+      }
+
+      article * p {
+        margin-top: 0.8rem !important;
       }
     </style>
   </head>

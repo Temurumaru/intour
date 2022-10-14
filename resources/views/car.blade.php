@@ -37,14 +37,16 @@
       <thead class="text-xs text-white uppercase bg-logoColor ">
           <tr>
               <th scope="col" class="py-4 px-6">
-                  {{LN['image']}}
+                {{LN['image']}}
               </th>
               <th scope="col" class="py-4 px-6">
-                  {{LN['product']}}
+                {{LN['model']}}
               </th>
-            
               <th scope="col" class="py-4 px-6">
-                  {{LN['price']}}
+                {{LN['comment']}}
+              </th>
+              <th scope="col" class="py-4 px-6">
+                {{LN['price']}}
               </th>
               
           </tr>
@@ -63,6 +65,10 @@
               </td>
               <td class="py-4 px-6 font-semibold text-gray-900 ">
                   <?=(@$_COOKIE['lang'] != 'ru') ? $val -> car_name : $val -> car_name_ru?>
+              </td>
+
+              <td class="py-4 px-6 font-semibold text-gray-900 ">
+                <?=(@$_COOKIE['lang'] != 'ru') ? $val -> car_description : $val -> car_description_ru?>
               </td>
 
               <td class="py-4 px-6 font-semibold text-gray-900">
