@@ -1125,8 +1125,8 @@ class AdminController extends Controller
 
 	public function addTextPage(Request $req) {
 		$req -> validate([
-			'title' => 'required|min:4|max:18',
-			'title_ru' => 'required|min:4|max:18',
+			'title' => 'required|min:4|max:20',
+			'title_ru' => 'required|min:4|max:20',
 			'header' => 'required|min:4|max:60',
 			'header_ru' => 'required|min:4|max:60',
 			'text' => 'required|min:4|max:30000',
@@ -1178,8 +1178,8 @@ class AdminController extends Controller
 
 	public function updTextPage(Request $req) {
 		$req -> validate([
-			'title' => 'required|min:4|max:18',
-			'title_ru' => 'required|min:4|max:18',
+			'title' => 'required|min:4|max:20',
+			'title_ru' => 'required|min:4|max:20',
 			'header' => 'required|min:4|max:60',
 			'header_ru' => 'required|min:4|max:60',
 			'text' => 'required|min:4|max:30000',
