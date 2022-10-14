@@ -93,7 +93,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_1" id="img_1">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_1_title" id="img_1_title"
+													<input type="text" class="form-control" name="img_1_title" id="img_1_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 1</label>
 												</div>
@@ -105,7 +105,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_2" id="img_2">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_2_title" id="img_2_title"
+													<input type="text" class="form-control" name="img_2_title" id="img_2_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 2</label>
 												</div>
@@ -117,7 +117,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_3" id="img_3">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_3_title" id="img_3_title"
+													<input type="text" class="form-control" name="img_3_title" id="img_3_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 3</label>
 												</div>
@@ -129,7 +129,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_4" id="img_4">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_4_title" id="img_4_title"
+													<input type="text" class="form-control" name="img_4_title" id="img_4_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 4</label>
 												</div>
@@ -141,7 +141,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_5" id="img_5">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_5_title" id="img_5_title"
+													<input type="text" class="form-control" name="img_5_title" id="img_5_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 5</label>
 												</div>
@@ -153,7 +153,7 @@
 											<div class="cls-grp">
 												<input class="form-control mb-1 bg-dark row-input" type="file" name="img_6" id="img_6">
 												<div class="form-floating">
-													<input type="text" class="form-control" required name="img_6_title" id="img_6_title"
+													<input type="text" class="form-control" name="img_6_title" id="img_6_title"
 													placeholder="Title">
 													<label for="floatingInput">Image title 6</label>
 												</div>
@@ -167,7 +167,7 @@
 								</div>
 								<div class="form-floating">
 									<textarea class="form-control" placeholder="Leave a comment here"
-										id="floatingTextarea" name="bottom_text" required style="height: 150px;"></textarea>
+										id="floatingTextarea" name="bottom_text" style="height: 150px;"></textarea>
 									<label for="floatingTextarea">Bottom text</label>
 								</div>
 								<input type="submit" class="btn btn-success mt-2 btn-upl" value="Upload">

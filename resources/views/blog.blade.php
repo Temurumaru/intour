@@ -179,7 +179,7 @@ $gl_titles = json_decode($data -> img_titles, true);
             </div></a> --}}
 
             <a href="/blog?post_id=<?=$val -> id?>" class="flex pt-2 pb-3 border-b-2 ">
-              <img class="w-20 h-20 rounded-lg mr-3 border-0" src="./upl_data/prevs/<?=$val -> preview?>" alt="">
+              <img class="w-20 h-20 rounded-lg object-cover mr-3 border-0" src="./upl_data/prevs/<?=$val -> preview?>" alt="">
               <div>
                 <span class="text-gray-400">
                   <?=str_replace(",", "", (explode(" ", $val -> date)[1]))?> <?=$arr[$month]?>, <?=str_replace(",", "", (explode(" ", $val -> date)[2]))?>

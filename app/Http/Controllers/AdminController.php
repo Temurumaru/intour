@@ -23,7 +23,7 @@ class AdminController extends Controller
 
 			return redirect() -> route('admin') -> with('success', 'Sign In was successed');
 		} else {
-			return redirect() -> back() -> withErrors(['login' => 'Login was Failed']);
+			return back() -> withErrors(['login' => 'Login was Failed']);
 		}
 	}
 
@@ -43,24 +43,24 @@ class AdminController extends Controller
 			if(R::store($adm)) {
 				return redirect() -> route('admin_creator') -> with('success', 'Administrator was created');
 			} else {
-				return redirect() -> back() -> withErrors(['login' => 'Administrator was NOT created']);
+				return back() -> withErrors(['login' => 'Administrator was NOT created']);
 			}
 		} else {
-			return redirect() -> back() -> withErrors(['login' => 'Еhere is already such an Administrator']);
+			return back() -> withErrors(['login' => 'Еhere is already such an Administrator']);
 		}
 	}
 
 	public function addPostOnBlog(Request $req) {
 		$req -> validate([
-			'title' => 'required|min:4|max:25',
+			'title' => 'required|min:4|max:50',
 			'top_text' => 'required|min:20|max:6000',
-			'bottom_text' => 'required|min:20|max:6000',
+			'bottom_text' => 'max:6000',
 		]);
 
 		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> wallpaper_img)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
+			return back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
 		}
 
 		$file = $req -> wallpaper_img;
@@ -69,11 +69,11 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 		}
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -82,7 +82,7 @@ class AdminController extends Controller
 
 
 		if(empty($req -> preview_img)) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'Preview image not found.']);
+			return back() -> withErrors(['preview_img' => 'Preview image not found.']);
 		}
 
 		$file = $req -> preview_img;
@@ -91,11 +91,11 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
+			return back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
+			return back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
 		}
 
 		$prv = date("YmdHis").rand(0, 99999999).".jpg";
@@ -120,11 +120,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
+				return back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
+				return back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
 			}
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
@@ -146,7 +146,7 @@ class AdminController extends Controller
 		$blog -> wallpaper = $wlpp;
 		$blog -> preview = $prv;
 		$blog -> top_text = $req -> top_text;
-		$blog -> bottom_text = $req -> bottom_text;
+		if(isset($req -> bottom_text)) $blog -> bottom_text = $req -> bottom_text;
 		$blog -> img = (string)json_encode($imgs_json);
 		$blog -> img_titles = (string)json_encode($img_titles_json);
 		$blog -> views = 0;
@@ -160,9 +160,9 @@ class AdminController extends Controller
 
 	public function updPostOnBlog(Request $req) {
 		$req -> validate([
-			'title' => 'required|min:4|max:20',
+			'title' => 'required|min:4|max:50',
 			'top_text' => 'required|min:20|max:6000',
-			'bottom_text' => 'required|min:20|max:6000',
+			'bottom_text' => 'max:6000',
 		]);
 
 		$max_avatar_size = 3 * 1024 * 1024;
@@ -175,11 +175,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+				return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+				return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 			}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -196,11 +196,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
+				return back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
+				return back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
 			}
 
 			$prv = date("YmdHis").rand(0, 99999999).".jpg";
@@ -232,11 +232,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
+				return back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
+				return back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
 			}
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
@@ -254,7 +254,7 @@ class AdminController extends Controller
 		if(isset($wlpp)) $blog -> wallpaper = $wlpp;
 		if(isset($prv)) $blog -> preview = $prv;
 		$blog -> top_text = $req -> top_text;
-		$blog -> bottom_text = $req -> bottom_text;
+		if(isset($req -> bottom_text)) $blog -> bottom_text = $req -> bottom_text;
 		$blog -> img = (string)json_encode($imgs_json);
 		$blog -> img_titles = (string)json_encode($img_titles_json);
 		$blog -> views = 0;
@@ -285,11 +285,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+				return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+				return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 			}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -304,11 +304,11 @@ class AdminController extends Controller
 			$size = $file2 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
+				return back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
+				return back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
 			}
 
 			$prv = date("YmdHis").rand(0, 99999999).".jpg";
@@ -336,11 +336,11 @@ class AdminController extends Controller
 			$size = $file3 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
+				return back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
+				return back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
 			}
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
@@ -381,7 +381,7 @@ class AdminController extends Controller
 		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> gallery_prev)) {
-			return redirect() -> back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
+			return back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
 		}
 
 		$file = $req -> gallery_prev;
@@ -390,14 +390,14 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(empty($req -> gallery_prev)) {
-			return redirect() -> back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
+			return back() -> withErrors(['gallery_prev' => 'Preview image not found.']);
 		}
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['gallery_prev' => 'Incorrect Preview image extension.']);
+			return back() -> withErrors(['gallery_prev' => 'Incorrect Preview image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['gallery_prev' => 'The Preview image is too heavy.']);
+			return back() -> withErrors(['gallery_prev' => 'The Preview image is too heavy.']);
 		}
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -442,11 +442,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
+				return back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
+				return back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
 			}
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
@@ -488,11 +488,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+				return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+				return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 			}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -535,11 +535,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
+				return back() -> withErrors(['imgs' => 'Incorrect image '.$i.' extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
+				return back() -> withErrors(['imgs' => 'The image '.$i.' is too heavy.']);
 			}
 
 			$fil_path = date("YmdHis").rand(0, 99999999).".jpg";
@@ -621,7 +621,7 @@ class AdminController extends Controller
 		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> wallpaper_img)) {
-			return redirect() -> back() -> withErrors(['wallpaper' => 'Wallpaper image not found.']);
+			return back() -> withErrors(['wallpaper' => 'Wallpaper image not found.']);
 		}
 
 		$file = $req -> wallpaper_img;
@@ -630,11 +630,11 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['wallpaper' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['wallpaper' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['wallpaper' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['wallpaper' => 'The Wallpaper image is too heavy.']);
 		}
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -643,7 +643,7 @@ class AdminController extends Controller
 		
 
 		if(empty($req -> preview_img)) {
-			return redirect() -> back() -> withErrors(['preview' => 'Wallpaper image not found.']);
+			return back() -> withErrors(['preview' => 'Wallpaper image not found.']);
 		}
 
 		$file2 = $req -> preview_img;
@@ -652,11 +652,11 @@ class AdminController extends Controller
 		$size2 = $file2 -> getSize();
 		
 		if(($type2 != "image/png") and ($type2 != "image/jpg") and ($type2 != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['preview' => 'Incorrect preview image extension.']);
+			return back() -> withErrors(['preview' => 'Incorrect preview image extension.']);
 		}
 
 		if(($size2 > $max_avatar_size) || ($error2 == 2) || ($error2 == 1)) {
-			return redirect() -> back() -> withErrors(['preview' => 'The preview image is too heavy.']);
+			return back() -> withErrors(['preview' => 'The preview image is too heavy.']);
 		}
 		
 		$prv = date("YmdHis").rand(0, 99999999).".jpg";
@@ -782,11 +782,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+				return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+				return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 			}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -801,11 +801,11 @@ class AdminController extends Controller
 			$size = $file2 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
+				return back() -> withErrors(['preview_img' => 'Incorrect Preview image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
+				return back() -> withErrors(['preview_img' => 'The Preview image is too heavy.']);
 			}
 
 			$prv = date("YmdHis").rand(0, 99999999).".jpg";
@@ -967,7 +967,7 @@ class AdminController extends Controller
 		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> car_img)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Wallpaper image not found.']);
+			return back() -> withErrors(['car_img' => 'Wallpaper image not found.']);
 		}
 
 		$file = $req -> car_img;
@@ -976,14 +976,14 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(empty($req -> car_img)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Preview image not found.']);
+			return back() -> withErrors(['car_img' => 'Preview image not found.']);
 		}
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['car_img' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['car_img' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['car_img' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['car_img' => 'The Wallpaper image is too heavy.']);
 		}
 
 		$crs = date("YmdHis").rand(0, 99999999).".jpg";
@@ -1037,11 +1037,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
 		}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -1056,11 +1056,11 @@ class AdminController extends Controller
 			$size = $file2 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
 		}
 
 			$wlpp2 = date("YmdHis").rand(0, 99999999).".jpg";
@@ -1075,11 +1075,11 @@ class AdminController extends Controller
 			$size = $file3 -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['admin_home_wallpaper' => 'The Wallpaper image is too heavy.']);
 		}
 
 			$wlpp3 = date("YmdHis").rand(0, 99999999).".jpg";
@@ -1135,7 +1135,7 @@ class AdminController extends Controller
 		$max_avatar_size = 3 * 1024 * 1024;
 
 		if(empty($req -> wallpaper_img)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
+			return back() -> withErrors(['wallpaper_img' => 'Wallpaper image not found.']);
 		}
 
 		$file = $req -> wallpaper_img;
@@ -1144,14 +1144,14 @@ class AdminController extends Controller
 		$size = $file -> getSize();
 
 		if(empty($req -> wallpaper_img)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Preview image not found.']);
+			return back() -> withErrors(['wallpaper_img' => 'Preview image not found.']);
 		}
 		if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+			return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 		}
 
 		if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-			return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+			return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 		}
 
 		$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
@@ -1199,11 +1199,11 @@ class AdminController extends Controller
 			$size = $file -> getSize();
 
 			if(($type != "image/png") and ($type != "image/jpg") and ($type != "image/jpeg")) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
+				return back() -> withErrors(['wallpaper_img' => 'Incorrect Wallpaper image extension.']);
 			}
 
 			if(($size > $max_avatar_size) || ($error == 2) || ($error == 1)) {
-				return redirect() -> back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
+				return back() -> withErrors(['wallpaper_img' => 'The Wallpaper image is too heavy.']);
 			}
 
 			$wlpp = date("YmdHis").rand(0, 99999999).".jpg";
