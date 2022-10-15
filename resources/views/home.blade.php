@@ -329,6 +329,27 @@ use RedBeanPHP\R as R;
                           >{{LN['andijon']}}</a
                         >
                       </li>
+                      <li>
+                        <a
+                          href="./tour_cities?id=15"
+                          class="block px-4 py-2 hover:bg-gray-100 "
+                          >{{LN['kokand']}}</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="./tour_cities?id=16"
+                          class="block px-4 py-2 hover:bg-gray-100 "
+                          >{{LN['chimgan']}}</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="./tour_cities?id=17"
+                          class="block px-4 py-2 hover:bg-gray-100 "
+                          >{{LN['shakhrisabz']}}</a
+                        >
+                      </li>
                     </ul>
                    
                   </div>

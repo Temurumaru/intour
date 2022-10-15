@@ -108,18 +108,21 @@ $gl_titles = json_decode((@$_COOKIE['lang'] != 'ru') ? $data -> img_titles : $da
           </div>
           <div class="md:w-2/5 md:pl-5 w-full flex flex-col md:pr-6">
             <h3 class="text-bgColor font-bold text-xl mb-2">{{LN['other cities']}}</h3>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['toshkent']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['samarkhand']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['khiva']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['karakalpakstan']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['navoiy']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['fergana']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['bukhara']}}</a>
-            <a href="/tourism?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['horezm']}}</a>
-            <a href="/tourism?id=4" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['qashqararyo']}}</a>
-            <a href="/tourism?id=3" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['jizzah']}}</a>
-            <a href="/tourism?id=1" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['termiz']}}</a>
-            <a href="/tourism?id=5" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['andijon']}}</a>
+            <a href="/tour_cities?id=1" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['toshkent']}}</a>
+            <a href="/tour_cities?id=2" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['samarkhand']}}</a>
+            <a href="/tour_cities?id=3" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['khiva']}}</a>
+            <a href="/tour_cities?id=4" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['karakalpakstan']}}</a>
+            <a href="/tour_cities?id=5" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['navoiy']}}</a>
+            <a href="/tour_cities?id=6" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['fergana']}}</a>
+            <a href="/tour_cities?id=7" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['bukhara']}}</a>
+            <a href="/tour_cities?id=8" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['horezm']}}</a>
+            <a href="/tour_cities?id=9" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['qashqararyo']}}</a>
+            <a href="/tour_cities?id=10" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['jizzah']}}</a>
+            <a href="/tour_cities?id=12" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['termiz']}}</a>
+            <a href="/tour_cities?id=13" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['andijon']}}</a>
+            <a href="/tour_cities?id=15" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['kokand']}}</a>
+            <a href="/tour_cities?id=16" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['chimgan']}}</a>
+            <a href="/tour_cities?id=17" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['shakhrisabz']}}</a>
           </div>
         </div>
       </div>
