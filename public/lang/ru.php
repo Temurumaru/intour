@@ -49,6 +49,7 @@ define('LN', [
   "religious tourism" => "Религиозный Туризм",
   "medical tourism" => "Медицинский Туризм",
   "mountain tourism" => "Горный Туризм",
+  "eco tourism" => "Эко Туризм",
   "explore more" => "Исследовать больше",
   "our blog" => "Наш блог",
   "gallery" => "Галерея",

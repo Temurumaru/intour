@@ -70,6 +70,7 @@ $gallery = json_decode($data -> img, true);
             <a href="/tourism?id=3" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['cultural tourism']}}</a>
             <a href="/tourism?id=1" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['medical tourism']}}</a>
             <a href="/tourism?id=5" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['mountain tourism']}}</a>
+            <a href="/tourism?id=6" class="py-3 px-9 hover:bg-logoColor hover:text-white bg-gray-300 my-1 rounded-lg duration-300">{{LN['eco tourism']}}</a>
           </div>
         </div>
       </div>

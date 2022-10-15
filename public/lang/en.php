@@ -56,6 +56,7 @@ define('LN', [
   "religious tourism" => "Religious Tourism",
   "medical tourism" => "Medical Tourism",
   "mountain tourism" => "Mountain Tourism",
+  "eco tourism" => "Eco Tourism",
   "explore more" => "Explore more",
   "our blog" => "Our Blog",
   "gallery" => "Gallery",

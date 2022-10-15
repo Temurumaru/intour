@@ -363,6 +363,13 @@ use RedBeanPHP\R as R;
                   >{{LN['mountain tourism']}}</a
                 >
               </li>
+              <li>
+                <a
+                  href="/tourism?id=6"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['eco tourism']}}</a
+                >
+              </li>
             </ul>
             
           </div>
