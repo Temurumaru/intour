@@ -123,3 +123,10 @@
     <i class="ri-arrow-up-s-line text-3xl"></i>
   </a>
 </footer>
+
+<script>
+  window.replainSettings = { id: 'a424a267-7a06-46ac-baa2-10517f4a1056' };
+  (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+  var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+  })('https://widget.replain.cc/dist/client.js');
+</script>
