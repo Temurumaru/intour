@@ -96,7 +96,7 @@
             >
           </li>
           <li>
-            <form>
+            {{-- <form>
               <div class="relative">
                 <input
                   type="search"
@@ -113,7 +113,11 @@
 
                 </button>
               </div>
-            </form>
+            </form> --}}
+            <a href="https://marss.uz" class="flex items-center">
+              <p class="mr-4" >Powered by: </p>
+              <img src="img/MT.png" class="h-[50px]" alt="Marss Team">
+            </a>
           </li>
         </ul>
       </div>
