@@ -8,7 +8,7 @@ $data -> views++;
 R::store($data);
 
 $gallery = json_decode($data -> img, true);
-$gl_titles = json_decode((@$_COOKIE['lang'] != 'ru') ? $data -> img_titles : $data -> img_titles_tu, true);
+$gl_titles = json_decode((@$_COOKIE['lang'] != 'ru') ? $data -> img_titles : $data -> img_titles_ru, true);
 ?>
 
 <!DOCTYPE html>
