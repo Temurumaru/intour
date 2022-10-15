@@ -83,7 +83,7 @@
       </div>
       <div class="md:col-span-1 col-span-2  sm:col-span-2">
         <ul class="">
-          <li class="mb-4 lg:mr-10">
+          {{-- <li class="mb-4 lg:mr-10">
             <h2 class="text-capitalize">            {{LN['subscribe']}}
 </h2>
           </li>
@@ -94,7 +94,7 @@
   travel and tours']}}
               </a
             >
-          </li>
+          </li> --}}
           <li>
             {{-- <form>
               <div class="relative">
