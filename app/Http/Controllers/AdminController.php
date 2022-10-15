@@ -1011,20 +1011,20 @@ class AdminController extends Controller
 
 	public function updHomeWall(Request $req) {
 		$req -> validate([
-			'title_1' => 'required|min:4|max:50',
-			'title_1_ru' => 'required|min:4|max:50',
-			'sub_title_1' => 'required|min:4|max:50',
-			'sub_title_1_ru' => 'required|min:4|max:50',
+			'title_1' => 'max:60',
+			'title_1_ru' => 'max:60',
+			'sub_title_1' => 'max:60',
+			'sub_title_1_ru' => 'max:60',
 
-			'title_2' => 'required|min:4|max:50',
-			'title_2_ru' => 'required|min:4|max:50',
-			'sub_title_2' => 'required|min:4|max:50',
-			'sub_title_2_ru' => 'required|min:4|max:50',
+			'title_2' => 'max:60',
+			'title_2_ru' => 'max:60',
+			'sub_title_2' => 'max:60',
+			'sub_title_2_ru' => 'max:60',
 
-			'title_3' => 'required|min:4|max:50',
-			'title_3_ru' => 'required|min:4|max:50',
-			'sub_title_3' => 'required|min:4|max:50',
-			'sub_title_3_ru' => 'required|min:4|max:50',
+			'title_3' => 'max:60',
+			'title_3_ru' => 'max:60',
+			'sub_title_3' => 'max:60',
+			'sub_title_3_ru' => 'max:60',
 
 		]);
 
@@ -1092,22 +1092,34 @@ class AdminController extends Controller
 		$data3 = R::findOne('wall_slide', 'id = ?', [3]);
 
 
-		$data -> title = $req -> title_1;
-		$data -> title_ru = $req -> title_1_ru;
-		$data -> sub_title = $req -> sub_title_1;
-		$data -> sub_title_ru = $req -> sub_title_1_ru;
+		if(isset($req -> title_1)) $data -> title = $req -> title_1;
+		if(!isset($req -> title_1)) $data -> title = "";
+		if(isset($req -> title_1_ru)) $data -> title_ru = $req -> title_1_ru;
+		if(!isset($req -> title_1_ru)) $data -> title_ru = "";
+		if(isset($req -> sub_title_1)) $data -> sub_title = $req -> sub_title_1;
+		if(!isset($req -> sub_title_1)) $data -> sub_title = "";
+		if(isset($req -> sub_title_1_ru)) $data -> sub_title_ru = $req -> sub_title_1_ru;
+		if(!isset($req -> sub_title_1_ru)) $data -> sub_title_ru = "";
 		if(isset($wlpp)) $data -> img = $wlpp;
 
-		$data2 -> title = $req -> title_2;
-		$data2 -> title_ru = $req -> title_2_ru;
-		$data2 -> sub_title = $req -> sub_title_2;
-		$data2 -> sub_title_ru = $req -> sub_title_2_ru;
+		if(isset($req -> title_2)) $data2 -> title = $req -> title_2;
+		if(!isset($req -> title_2)) $data2 -> title = "";
+		if(isset($req -> title_2_ru)) $data2 -> title_ru = $req -> title_2_ru;
+		if(!isset($req -> title_2_ru)) $data2 -> title_ru = "";
+		if(isset($req -> sub_title_2)) $data2 -> sub_title = $req -> sub_title_2;
+		if(!isset($req -> sub_title_2)) $data2 -> sub_title = "";
+		if(isset($req -> sub_title_2_ru)) $data2 -> sub_title_ru = $req -> sub_title_2_ru;
+		if(!isset($req -> sub_title_2_ru)) $data2 -> sub_title_ru = "";
 		if(isset($wlpp2)) $data2 -> img = $wlpp2;
 
-		$data3 -> title = $req -> title_3;
-		$data3 -> title_ru = $req -> title_3_ru;
-		$data3 -> sub_title = $req -> sub_title_3;
-		$data3 -> sub_title_ru = $req -> sub_title_3_ru;
+		if(isset($req -> title_3)) $data3 -> title = $req -> title_3;
+		if(!isset($req -> title_3)) $data3 -> title = "";
+		if(isset($req -> title_3_ru)) $data3 -> title_ru = $req -> title_3_ru;
+		if(!isset($req -> title_3_ru)) $data3 -> title_ru = "";
+		if(isset($req -> sub_title_3)) $data3 -> sub_title = $req -> sub_title_3;
+		if(!isset($req -> sub_title_3)) $data3 -> sub_title = "";
+		if(isset($req -> sub_title_3_ru)) $data3 -> sub_title_ru = $req -> sub_title_3_ru;
+		if(!isset($req -> sub_title_3_ru)) $data3 -> sub_title_ru = "";
 		if(isset($wlpp3)) $data3 -> img = $wlpp3;
 
 		R::store($data);
