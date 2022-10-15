@@ -475,8 +475,8 @@ class AdminController extends Controller
 			'title_ru' => 'required|min:4|max:20',
 			'text' => 'required|min:20|max:6000',
 			'text_ru' => 'required|min:20|max:6000',
-			'historial_places' => 'required|min:20|max:2700',
-			'historial_places_ru' => 'required|min:20|max:2700',
+			'historial_places' => 'required|min:10|max:2700',
+			'historial_places_ru' => 'required|min:10|max:2700',
 		]);
 
 		$max_avatar_size = 3 * 1024 * 1024;
