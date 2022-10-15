@@ -153,7 +153,7 @@ $txt = $md -> convert((@$_COOKIE['lang'] != 'ru') ? $dt -> text : $dt -> text_ru
             <h2 class="text-3xl md:text-6xl font-bold mb-3"><?=(@$_COOKIE['lang'] != 'ru') ? $dt -> title : $dt -> title_ru?></h2>
             <h3 class="text-lg md:text-2xl font-semibold">
               <a href="./">{{LN['home']}}</a> /
-              <a href="./text_page?={{@$_GET['id']}}"><?=(@$_COOKIE['lang'] != 'ru') ? $dt -> title : $dt -> title_ru?></a>
+              <a href="./text_page?id={{@$_GET['id']}}"><?=(@$_COOKIE['lang'] != 'ru') ? $dt -> title : $dt -> title_ru?></a>
             </h3>
           </div>
         </div>
