@@ -161,7 +161,7 @@ use RedBeanPHP\R as R;
           <div
             class="container flex flex-wrap items-center justify-between mx-auto"
           >
-            <a href="#" class="flex items-center">
+            <a href="https://intour.uz" class="flex items-center">
               <img src="./project/image/Logo.png" alt="" />
             </a>
             <button
