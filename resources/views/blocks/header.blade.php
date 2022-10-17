@@ -155,6 +155,106 @@ use RedBeanPHP\R as R;
           >
         </li>
         <li>
+          <a
+            href="/about"
+            class="block py-2 pl-3 pr-4 text-titleText rounded hover:text-logoColor md:bg-transparent md:p-0"
+            aria-current="page"
+            >{{LN['about us']}}</a
+          >
+        </li>
+        <li>
+          <a
+            href="/destinations"
+            class="block py-2 pl-3 pr-4 text-titleText rounded hover:text-logoColor md:bg-transparent md:p-0 "
+            >{{LN['destinations']}}</a
+          >
+        </li>
+        <li>
+          <button
+            id="dropdownNavbarLink"
+            data-dropdown-toggle="dropdownNavbar2"
+            class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white text-gray-700 rounded hover:text-logoColor logoColor md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
+          >
+          {{LN['tourism']}}
+            <svg
+              class="w-5 h-5 ml-1"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            id="dropdownNavbar2"
+            class="hidden z-10 block font-normal bg-white divide-y divide-gray-100 rounded shadow w-44"
+            data-popper-reference-hidden=""
+            data-popper-escaped=""
+            data-popper-placement="bottom"
+            style="
+              position: absolute;
+              inset: 0px auto auto 0px;
+              margin: 0px;
+              transform: translate(381px, 66px);
+            "
+          >
+            <ul
+              class="py-1 text-sm text-gray-700 "
+              aria-labelledby="dropdownLargeButton"
+            >
+              <li>
+                <a
+                  href="./tourism?id=2"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['gastronomic tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=4"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['religious tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=3"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['cultural tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=1"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['medical tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=5"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['mountain tourism']}}</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tourism?id=6"
+                  class="block px-4 py-2 hover:bg-gray-100 "
+                  >{{LN['eco tourism']}}</a
+                >
+              </li>
+            </ul>
+            
+          </div>
+        </li>
+        <li>
           <button
             id="dropdownNavbarLink"
             data-dropdown-toggle="dropdownNavbar"
@@ -313,98 +413,6 @@ use RedBeanPHP\R as R;
         <li>
           <button
             id="dropdownNavbarLink"
-            data-dropdown-toggle="dropdownNavbar2"
-            class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white text-gray-700 rounded hover:text-logoColor logoColor md:hover:bg-transparent md:border-0 md:p-0 md:w-auto"
-          >
-          {{LN['tourism']}}
-            <svg
-              class="w-5 h-5 ml-1"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
-          <!-- Dropdown menu -->
-          <div
-            id="dropdownNavbar2"
-            class="hidden z-10 block font-normal bg-white divide-y divide-gray-100 rounded shadow w-44"
-            data-popper-reference-hidden=""
-            data-popper-escaped=""
-            data-popper-placement="bottom"
-            style="
-              position: absolute;
-              inset: 0px auto auto 0px;
-              margin: 0px;
-              transform: translate(381px, 66px);
-            "
-          >
-            <ul
-              class="py-1 text-sm text-gray-700 "
-              aria-labelledby="dropdownLargeButton"
-            >
-              <li>
-                <a
-                  href="./tourism?id=2"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['gastronomic tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/tourism?id=4"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['religious tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/tourism?id=3"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['cultural tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/tourism?id=1"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['medical tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/tourism?id=5"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['mountain tourism']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/tourism?id=6"
-                  class="block px-4 py-2 hover:bg-gray-100 "
-                  >{{LN['eco tourism']}}</a
-                >
-              </li>
-            </ul>
-            
-          </div>
-        </li>
-        <li>
-          <a
-            href="/destinations"
-            class="block py-2 pl-3 pr-4 text-titleText rounded hover:text-logoColor md:bg-transparent md:p-0 "
-            >{{LN['destinations']}}</a
-          >
-        </li>
-        <li>
-          <button
-            id="dropdownNavbarLink"
             data-dropdown-toggle="dropdownNavbar1"
             class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-white text-gray-700 rounded hover:text-logoColor logoColor md:hover:bg-transparent md:border-0 md:p-0 md:w-auto "
           >
@@ -443,13 +451,6 @@ use RedBeanPHP\R as R;
             >
               <li>
                 <a
-                  href="./about"
-                  class="block px-4 py-2 "
-                  >{{LN['about us']}}</a
-                >
-              </li>
-              <li>
-                <a
                   href="./blog_sub"
                   class="block px-4 py-2 hover:bg-gray-100 "
                   >{{LN['our blogs']}}</a
@@ -460,13 +461,6 @@ use RedBeanPHP\R as R;
                   href="/gallery"
                   class="block px-4 py-2 hover:bg-gray-100 "
                   >{{LN['gallery']}}</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  class="block px-4 py-2 capitalize hover:bg-gray-100   "
-                  >{{LN['_contact us']}}</a
                 >
               </li>
 
@@ -488,6 +482,13 @@ use RedBeanPHP\R as R;
             </ul>
             
           </div>
+        </li>
+        <li>
+          <a
+            href="/contact"
+            class="block py-2 pl-3 pr-4 rounded  text-white hover:text-logoColor md:bg-transparent md:p-0 "
+            >{{LN['_contact us']}}</a
+          >
         </li>
         <li class="md:hidden">
           <div
