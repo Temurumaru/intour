@@ -1,6 +1,8 @@
 <link href="./project/plugins/aos/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="./project/plugins/flowbite/flowbite.css" />
 
+    <link rel="icon" href="/favicon.ico">
+
     <link rel="stylesheet" href="./project/plugins/swiper/swiper.css" />
     <link href="./project/plugins/remixicon/remixicon.css" rel="stylesheet" />
 

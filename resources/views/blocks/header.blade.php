@@ -64,13 +64,13 @@ use RedBeanPHP\R as R;
       </div>
     </div>
     <div class="flex items-center">
-      <a href="#">
+      <a href="https://www.facebook.com/intourtashkent">
         <i class="ri-facebook-circle-fill text-2xl"></i>
       </a>
-      <a href="#" class="mx-5">
+      <a href="https://www.instagram.com/intouruz/" class="mx-5">
         <i class="ri-instagram-fill text-2xl"></i>
       </a>
-      <a href="#" class="mr-4">
+      <a href="https://t.me/intour_uz" class="mr-4">
         <i class="ri-telegram-fill text-2xl"></i>
       </a>
       <div
