@@ -486,7 +486,7 @@ use RedBeanPHP\R as R;
         <li>
           <a
             href="/contact"
-            class="block py-2 pl-3 pr-4 rounded  text-white hover:text-logoColor md:bg-transparent md:p-0 "
+            class="block py-2 pl-3 pr-4 text-titleText rounded hover:text-logoColor md:bg-transparent md:p-0 "
             >{{LN['_contact us']}}</a
           >
         </li>
