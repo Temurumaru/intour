@@ -13,7 +13,7 @@
       <header id="header" class="relative">
         @include('blocks.header')
         <div
-          class="header__content bg-center bg-[url('./project/image/Blog.png')] bg-blend-darken md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
+          class="header__content bg-center bg-[url('./img/im1.jpg')] bg-blend-darken md:mt-0 pt-32 pb-40 md:py-40 md:pb-50 text-white bg-no-repeat bg-cover"
         >
         <div class=" w-full h-full ">
           <div class="container mx-auto">
@@ -107,19 +107,19 @@
             <a class="gallery__card" onclick="card(this)" data-aos="fade-up" >
               <img class="w-full card__img object-contain  max-w-[440px] max-h-[480px]" src="./project/image/guvohnoma/Guvognoma.png" alt="" />
               <h2 class="lg:text-base mt-2 font-bold text-xs text-center">
-                certificate
+                Certificate
               </h2>
             </a>
             <a class="gallery__card"  onclick="card(this)" data-aos="fade-up">
               <img class="w-full  card__img object-contain  max-w-[440px] max-h-[480px]" src="./project/image/guvohnoma/Licence.png" alt="" />
               <h2 class="lg:text-base mt-2 font-bold text-xs text-center">
-                licence
+                Licence
               </h2>
             </a>
             <a class="gallery__card text-center" onclick="card(this)" data-aos="fade-up">
               <img class="w-full object-contain   card__img max-w-[440px] max-h-[480px]" src="./project/image/guvohnoma/Photo Guide.png" alt="" />
               <h2 class="lg:text-base mt-2 font-bold text-xs ">
-                Guvohnoma
+                Accordance
               </h2>
             </a>
           </div>
