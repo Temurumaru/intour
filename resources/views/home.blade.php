@@ -1130,7 +1130,7 @@ use RedBeanPHP\R as R;
           ];
         }
           $bl_lng = (@$_COOKIE['lang'] != 'ru') ? 'en' : 'ru';
-          $blogs = R::find("blog","lang = ? ORDER BY IF(views > 0, 1, 1), views DESC LIMIT 3", [$bl_lng]);
+          $blogs = array_reverse(R::find("blog","lang = ? LIMIT 3", [$bl_lng]));
           foreach ($blogs as $val) { 
             $month = intval((explode(" ", $val -> date)[0]) - 1);  
             ?>
