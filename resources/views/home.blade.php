@@ -1188,14 +1188,14 @@ use RedBeanPHP\R as R;
             <img src="./project/image/2-Photo.png" class="w-full object-cover card__img h-full  " alt="">
           </div>
           <div data-aos-delay="100" data-aos="fade-up" href="#"  onclick="card(this)" class="card h-64 rounded-lg overflow-hidden relative gallery__card">
-            <img src="./project/image/2-Photo.png" class="w-full object-cover h-full card__img" alt="">
+            <img src="https://intour.uz/upl_data/gallery/2022102412585132524762.jpg" class="w-full object-cover h-full card__img" alt="">
            
           </div>
           <div data-aos-delay="100" data-aos="fade-up" href="#"  onclick="card(this)" class="h-64 card rounded-lg overflow-hidden relative gallery__card">
-            <img src="./project/image/2-Photo.png" class="w-full object-cover h-full card__img" alt="">
+            <img src="https://intour.uz/upl_data/gallery/2022102413033546392489.jpg" class="w-full object-cover h-full card__img" alt="">
           </div>
           <div data-aos-delay="100" data-aos="fade-up" href="#"  onclick="card(this)" class="h-64 rounded-lg card overflow-hidden relative gallery__card">
-            <img src="./project/image/2-Photo.png" class="w-full object-cover h-full card__img">
+            <img src="https://intour.uz/upl_data/gallery/2022102413033534460769.jpg" class="w-full object-cover h-full card__img">
           </div>
         </div>
       </section>
