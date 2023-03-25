@@ -1,2 +1,2 @@
 # Intour
-### intour.uz
+### [intour.uz](intour.uz)
